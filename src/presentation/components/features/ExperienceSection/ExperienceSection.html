@@ -1,0 +1,22 @@
+<section id="experience" class="py-24 max-w-5xl fade-in-up">
+    <SectionHeader number="02.">Where I've Worked</SectionHeader>
+
+    <BaseTabs :tabs="tabList" :model-value="activeTabId" @update:model-value="$emit('update:activeTabId', $event)">
+        <template #default="{ activeTab }">
+            <div v-for="job in jobs" :key="job.id" v-show="activeTab === job.id" class="animate-fadeIn">
+                <h3 class="text-xl font-bold text-white mb-1">
+                    {{ job.role }} <span class="text-green">@ {{ job.company }}</span>
+                </h3>
+                <p class="font-mono text-xs text-lightSlate mb-6">{{ job.dates }}</p>
+                <div class="space-y-4 text-slate text-base">
+                    <ul class="space-y-3">
+                        <li v-for="(bullet, index) in job.bullets" :key="index" class="flex items-start">
+                            <span class="text-green mr-2 mt-1">▹</span>
+                            <span>{{ bullet.text }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </template>
+    </BaseTabs>
+</section>

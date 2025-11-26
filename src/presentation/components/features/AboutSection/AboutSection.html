@@ -1,0 +1,92 @@
+<section id="about" class="py-24 max-w-4xl fade-in-up">
+    <SectionHeader number="01.">About Me</SectionHeader>
+
+    <div class="grid md:grid-cols-3 gap-12">
+        <!-- Text Content -->
+        <div class="md:col-span-2 text-slate leading-7 text-lg">
+            <p class="mb-4">
+                My journey began in 2017, pivoting from systems to software. Since then, I've had the opportunity to
+                build scalable solutions for
+                <span class="text-green">T2C</span> and <span class="text-green">Quantion</span>, and now I'm tackling
+                global-scale challenges at
+                <span class="text-white">Amadeus</span>.
+            </p>
+            <p class="mb-8">
+                I don't just write code; I care about the team dynamics and the "Why" behind features. Whether it's
+                optimizing a render cycle or mentoring a junior developer, I aim for excellence.
+            </p>
+
+            <!-- Accordions -->
+            <div class="space-y-4">
+                <!-- Core Tech Accordion -->
+                <BaseAccordion :is-open="accordionState.coreTech" @toggle="toggle('coreTech')">
+                    <template #icon>
+                        <Cpu class="w-5 h-5 text-green group-hover:scale-110 transition-transform" />
+                    </template>
+                    <template #title>Core Technologies</template>
+                    <template #content>
+                        <ul class="p-4 grid grid-cols-2 gap-3 font-mono text-sm">
+                            <li class="flex items-center">
+                                <Code2 class="w-3 h-3 text-green mr-2" /> Vue.js (Ecosystem)
+                            </li>
+                            <li class="flex items-center">
+                                <Code2 class="w-3 h-3 text-green mr-2" /> Angular
+                            </li>
+                            <li class="flex items-center">
+                                <Code2 class="w-3 h-3 text-green mr-2" /> TypeScript
+                            </li>
+                            <li class="flex items-center">
+                                <Code2 class="w-3 h-3 text-green mr-2" /> Node.js
+                            </li>
+                            <li class="flex items-center">
+                                <Code2 class="w-3 h-3 text-green mr-2" /> Tailwind CSS
+                            </li>
+                            <li class="flex items-center">
+                                <Code2 class="w-3 h-3 text-green mr-2" /> Testing (Jest)
+                            </li>
+                        </ul>
+                    </template>
+                </BaseAccordion>
+
+                <!-- Beyond Code Accordion -->
+                <BaseAccordion :is-open="accordionState.beyondCode" @toggle="toggle('beyondCode')">
+                    <template #icon>
+                        <Users class="w-5 h-5 text-green group-hover:scale-110 transition-transform" />
+                    </template>
+                    <template #title>Beyond the Code</template>
+                    <template #content>
+                        <ul class="p-4 space-y-3 text-sm">
+                            <li class="flex items-start gap-2">
+                                <CheckCircle class="w-4 h-4 text-green mt-1 shrink-0" />
+                                <span><strong>Mentoring & Leadership:</strong> Training interns and conducting code
+                                    reviews.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <CheckCircle class="w-4 h-4 text-green mt-1 shrink-0" />
+                                <span><strong>Agile Communication:</strong> Active in Sprint Planning &
+                                    Retrospectives.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <CheckCircle class="w-4 h-4 text-green mt-1 shrink-0" />
+                                <span><strong>Problem Solving:</strong> Translating business logic into clean
+                                    code.</span>
+                            </li>
+                        </ul>
+                    </template>
+                </BaseAccordion>
+            </div>
+        </div>
+
+        <!-- Image Column -->
+        <div class="relative group mx-auto md:mx-0 w-56 md:w-auto h-fit">
+            <div
+                class="absolute top-4 left-4 w-full h-full border-2 border-green rounded transition-transform duration-300 group-hover:-translate-x-2 group-hover:-translate-y-2 z-0">
+            </div>
+            <div class="relative z-10 bg-green rounded overflow-hidden">
+                <img src="https://ui-avatars.com/api/?name=David+Nin&background=0a192f&color=64ffda&size=400&font-size=0.33"
+                    alt="David Nin"
+                    class="w-full h-full object-cover grayscale hover:grayscale-0 mix-blend-multiply hover:mix-blend-normal transition-all duration-300 opacity-90 hover:opacity-100">
+            </div>
+        </div>
+    </div>
+</section>

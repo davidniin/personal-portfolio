@@ -1,0 +1,33 @@
+<section class="min-h-screen flex flex-col justify-center items-start pt-20">
+    <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green/10 text-green font-mono text-xs mb-6 fade-in-up border border-green/20">
+        <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green"></span>
+        </span>
+        Open to new challenges
+    </div>
+
+    <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight fade-in-up delay-100">
+        {{ personalInfo.name }}.
+    </h1>
+
+    <h2 class="text-4xl md:text-6xl font-bold text-slate mb-8 tracking-tight fade-in-up delay-200">
+        {{ personalInfo.tagline }}
+    </h2>
+
+    <p class="text-slate max-w-xl text-lg leading-relaxed mb-12 fade-in-up delay-300">
+        {{ personalInfo.description }} Currently scaling products at
+        <a href="#" class="text-green hover:underline decoration-green/50 underline-offset-4">{{ personalInfo.company
+            }}</a>.
+    </p>
+
+    <div class="fade-in-up delay-300 flex flex-col sm:flex-row gap-4">
+        <BaseButton variant="primary" @click="$emit('navigate-projects')">
+            Check my Repos
+        </BaseButton>
+        <BaseButton variant="secondary" @click="$emit('toggle-chat')">
+            <Sparkles class="w-4 h-4 group-hover:rotate-12 transition-transform" /> Ask NinIA
+        </BaseButton>
+    </div>
+</section>

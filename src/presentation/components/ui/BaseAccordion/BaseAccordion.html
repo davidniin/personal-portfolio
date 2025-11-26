@@ -1,0 +1,17 @@
+<div class="border border-lightestNavy bg-lightNavy rounded-lg overflow-hidden transition-all duration-300 hover:border-green/50"
+    :class="{ 'bg-navy/50': isOpen }">
+    <button @click="toggle" class="w-full flex justify-between items-center p-4 text-left focus:outline-none group">
+        <div class="flex items-center gap-3">
+            <slot name="icon" />
+            <span class="font-mono text-white font-semibold">
+                <slot name="title" />
+            </span>
+        </div>
+        <ChevronDown class="w-5 h-5 text-lightSlate transition-transform duration-300 group-hover:text-green"
+            :class="{ 'rotate-180': isOpen }" />
+    </button>
+
+    <div v-show="isOpen" class="border-t border-lightestNavy bg-navy/30">
+        <slot name="content" />
+    </div>
+</div>

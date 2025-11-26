@@ -1,0 +1,26 @@
+<div>
+    <!-- Left Side -->
+    <div class="hidden md:block fixed bottom-0 left-12 z-10 w-10">
+        <div
+            class="flex flex-col items-center gap-6 text-lightSlate after:content-[''] after:w-[1px] after:h-24 after:bg-lightSlate after:block after:mx-auto">
+            <a :href="socialLinks.github" class="hover:text-green hover:-translate-y-1 transition-all">
+                <Github class="w-5 h-5" />
+            </a>
+            <a :href="socialLinks.linkedin" class="hover:text-green hover:-translate-y-1 transition-all">
+                <Linkedin class="w-5 h-5" />
+            </a>
+        </div>
+    </div>
+
+    <!-- Right Side -->
+    <div class="hidden md:block fixed bottom-0 right-12 z-10 w-10">
+        <div
+            class="flex flex-col items-center gap-6 text-lightSlate after:content-[''] after:w-[1px] after:h-24 after:bg-lightSlate after:block after:mx-auto">
+            <a :href="`mailto:${socialLinks.email}`"
+                class="font-mono text-xs hover:text-green hover:-translate-y-1 transition-all"
+                style="writing-mode: vertical-rl;">
+                {{ socialLinks.email }}
+            </a>
+        </div>
+    </div>
+</div>

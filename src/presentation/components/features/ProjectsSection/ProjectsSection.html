@@ -1,0 +1,45 @@
+<section id="projects" class="py-24 fade-in-up">
+    <SectionHeader number="03.">Engineering Labs & POCs</SectionHeader>
+
+    <p class="text-slate mb-12 max-w-2xl">
+        A selection of repositories from my
+        <a href="#" class="text-green hover:underline">GitHub</a> where I explore new patterns.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <BaseCard v-for="(project, index) in projects" :key="index">
+            <div class="flex justify-between items-center mb-6">
+                <Folder class="w-10 h-10 text-green" />
+                <div class="flex gap-4">
+                    <Github class="w-5 h-5 text-slate hover:text-green transition-colors cursor-pointer" />
+                    <ExternalLink class="w-5 h-5 text-slate hover:text-green transition-colors cursor-pointer" />
+                </div>
+            </div>
+
+            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-green transition-colors font-mono">
+                {{ project.title }}
+            </h3>
+
+            <div class="mb-4">
+                <span class="text-[10px] uppercase tracking-wider px-2 py-1 rounded" :class="project.colorClass">
+                    {{ project.category }}
+                </span>
+            </div>
+
+            <p class="text-lightSlate text-sm mb-6 flex-grow">
+                {{ project.description }}
+            </p>
+
+            <ul class="font-mono text-xs text-slate flex flex-wrap gap-3 mt-auto">
+                <li v-for="tag in project.tags" :key="tag">{{ tag }}</li>
+            </ul>
+        </BaseCard>
+    </div>
+
+    <div class="mt-12 text-center">
+        <BaseButton variant="secondary" @click="openGithub">
+            View Full GitHub Profile
+            <ArrowRight class="w-4 h-4" />
+        </BaseButton>
+    </div>
+</section>
