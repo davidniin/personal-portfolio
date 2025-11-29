@@ -5,6 +5,7 @@
 // IMPORTS
 // ============================================================================
 import { ref, reactive, onMounted } from 'vue';
+import { SpeedInsights } from "@vercel/speed-insights/vue"
 
 // Configuration (Infrastructure Layer)
 import { 
@@ -42,7 +43,8 @@ export default {
     ExperienceSection,
     ProjectsSection,
     ContactSection,
-    ChatWidget
+    ChatWidget,
+    SpeedInsights
   },
   
   props: {},
