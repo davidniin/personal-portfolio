@@ -73,7 +73,7 @@ export default {
     });
 
     // Normal variables (non-reactive)
-    const apiKey = ''; // TODO: Move to .env
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
     let geminiClient = null;
 
     /******************************************************
