@@ -5,7 +5,8 @@
 // IMPORTS
 // ============================================================================
 import { ref, reactive, onMounted } from 'vue';
-import { SpeedInsights } from "@vercel/speed-insights/vue"
+import { SpeedInsights } from "@vercel/speed-insights/vue";
+import { inject } from '@vercel/analytics';
 
 // Configuration (Infrastructure Layer)
 import { 
@@ -81,6 +82,10 @@ export default {
     
     onMounted(() => {
       console.log('App mounted - with external template');
+      
+      // Initialize Vercel Analytics
+      inject();
+      
       // Initialize API client
       geminiClient = new GeminiClient(apiKey);
       
@@ -89,7 +94,6 @@ export default {
       
       // Spotlight effect
       window.addEventListener('mousemove', handleMouseMove);
-      
     });
 
     /******************************************************
@@ -188,7 +192,6 @@ export default {
         spotlight.style.setProperty('--y', `${e.clientY}px`);
       }
     };
-    
 
     /******************************************************
      *                RETURN                              *
