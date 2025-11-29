@@ -65,6 +65,7 @@ export default {
     // Reactive objects
     const accordionState = reactive({
       coreTech: false,
+      architecture: false,
       beyondCode: false
     });
 
@@ -87,8 +88,6 @@ export default {
       // Spotlight effect
       window.addEventListener('mousemove', handleMouseMove);
       
-      // Navbar scroll logic
-      initNavbarScroll();
     });
 
     /******************************************************
@@ -188,19 +187,6 @@ export default {
       }
     };
     
-    const initNavbarScroll = () => {
-      let lastScrollY = window.scrollY;
-      const navbar = document.getElementById('navbar');
-      
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > lastScrollY && window.scrollY > 100) {
-          navbar?.classList.add('-translate-y-full');
-        } else {
-          navbar?.classList.remove('-translate-y-full');
-        }
-        lastScrollY = window.scrollY;
-      });
-    };
 
     /******************************************************
      *                RETURN                              *

@@ -22,22 +22,23 @@ export const JOBS = [
         role: 'Senior Frontend Developer',
         dates: 'May 2023 - Present | Barcelona',
         bullets: [
-            { text: 'Code Quality & Testing: Ensuring robust applications through best practices and thorough testing strategies.' },
-            { text: 'Agile Collaboration: Active participation in cross-functional teams (sprint planning, dailies, retrospectives).' },
-            { text: 'Mentorship: Helping junior developers and interns integrate into the team and grow their technical capabilities.' },
-            { text: 'Performance Optimization: Implementing new features while maintaining high performance standards for global users.' }
+            { text: 'Engineering scalable frontend architectures using Angular, React, and Vue.js for the travel sector, ensuring high availability and performance for mission-critical applications.' },
+            { text: 'Elevating code standards through comprehensive testing suites (Jest, Cypress) and rigorous peer code reviews to minimize technical debt.' },
+            { text: 'Driving Agile best practices within the team to streamline delivery pipelines and improve sprint velocity.' },
+            { text: 'Mentoring junior developers and interns, accelerating their technical onboarding and fostering a collaborative engineering culture.' }
         ]
     }),
     new Job({
         id: 't2c',
-        company: 'T2C',
+        company: 'Technology 2 Client (T2C)',
         role: 'Front Web Developer',
         dates: 'Nov 2020 - May 2023 | Barcelona',
         bullets: [
-            { text: 'Migration Strategy: Successfully led the migration from Vue 2 to Vue 3, improving maintainability and performance.' },
-            { text: 'Architecture: Connected the frontend with a complex microservices architecture.' },
-            { text: 'State Management: Implemented robust state management using Vuex to handle complex business logic.' },
-            { text: 'Leadership: Responsible for training junior developers and reviewing code.' }
+            { text: 'Developed a client-facing application from scratch using Vue.js, adhering to Agile methodologies and GitLab workflows.' },
+            { text: 'Executed the migration of the codebase from Vue 2 to Vue 3, ensuring seamless functionality and improved modern standards.' },
+            { text: 'Integrated the frontend with a microservices architecture via REST APIs and managed complex application state using Vuex.' },
+            { text: 'Built responsive and modular user interfaces using SCSS and Tailwind CSS.' },
+            { text: 'Supported the growth of junior developers by defining technical tasks based on use cases and conducting code reviews to ensure quality.' }
         ]
     }),
     new Job({
@@ -46,10 +47,10 @@ export const JOBS = [
         role: 'Full Stack Developer',
         dates: 'Jun 2019 - Jul 2020 | Barcelona',
         bullets: [
-            { text: 'Angular Upgrade: Migrated legacy codebases from Angular 5 to Angular 8.' },
-            { text: 'Testing Culture: Wrote comprehensive unit tests using Mocha & Jasmine.' },
-            { text: 'Full Stack: Worked with Node.js (v14) backend services.' },
-            { text: 'Methodology: Deepened knowledge of AGILE foundations.' }
+            { text: 'Migrated legacy codebases from Angular 5 to Angular 8, improving performance and maintainability.' },
+            { text: 'Established testing culture by writing comprehensive unit tests using Mocha & Jasmine.' },
+            { text: 'Developed full-stack solutions with Node.js (v14) backend services.' },
+            { text: 'Deepened knowledge of AGILE methodologies and software development best practices.' }
         ]
     }),
     new Job({
@@ -58,8 +59,8 @@ export const JOBS = [
         role: 'Java Developer',
         dates: 'Oct 2018 - Sep 2019 | Sabadell',
         bullets: [
-            { text: 'Enterprise Development: Worked with Java 6 and internal proprietary frameworks.' },
-            { text: 'Fundamentals: Gained foundational experience in software development lifecycles.' }
+            { text: 'Worked with Java 6 and internal proprietary frameworks in enterprise development.' },
+            { text: 'Gained foundational experience in software development lifecycles and enterprise patterns.' }
         ]
     })
 ];
@@ -76,13 +77,13 @@ export const PROJECTS = [
     new Project({
         title: 'frontend-testing-suite',
         description: 'A comprehensive setup for unit and integration testing. Demonstrates how to achieve high code coverage in legacy and modern frameworks.',
-        tags: ['Mocha/Jasmine', 'Jest', 'CI/CD'],
+        tags: ['Jest', 'Vitest', 'Cypress'],
         category: 'Quality Assurance',
         colorClass: 'text-yellow-500 border-yellow-500/30 bg-yellow-500/10'
     }),
     new Project({
         title: 'ng-microfrontend-shell',
-        description: 'An experimental shell application using Module Federation to load Angular micro-frontends dynamically. Focus on shared state performance.',
+        description: 'An experimental shell application using Module Federation to load Angular micro-frontends dynamically. Focus on shared state and performance.',
         tags: ['Angular 14+', 'RxJS', 'Webpack 5'],
         category: 'Experiment',
         colorClass: 'text-blue-500 border-blue-500/30 bg-blue-500/10'
@@ -91,17 +92,62 @@ export const PROJECTS = [
 
 // Social Links
 export const SOCIAL_LINKS = {
-    github: 'https://github.com/DavidNinMur',
+    github: 'https://github.com/davidniin',
     linkedin: 'https://www.linkedin.com/in/david-nin/',
-    email: 'dninmur@gmail.com'
+    email: 'dninmur@gmail.com',
+    phone: '+34 620 911 778',
+    location: 'Sabadell, Barcelona, Spain'
 };
 
 // Personal Info
 export const PERSONAL_INFO = {
-    name: 'David Nin',
+    name: 'David Nin Mur',
     title: 'Senior Frontend Developer',
-    location: 'Barcelona',
+    location: 'Barcelona, Spain',
     company: 'Amadeus',
-    tagline: 'Engineering the future of web.',
-    description: 'Senior Frontend Engineer based in Barcelona. I transform complex architectural challenges into clean, accessible, and high-performance interfaces.'
+    tagline: 'Building scalable web experiences.',
+    description: 'Results-driven Senior Frontend Developer with extensive experience in engineering scalable frontend architectures using Vue.js and Angular. Adept at elevating coding standards through rigorous testing and peer reviews while implementing Agile best practices.',
+    bio: 'Ambitious and proactive, I am deeply committed to continuous learning and professional growth, constantly seeking to absorb knowledge from my environment. Proven mentor, fostering technical growth within teams and driving delivery efficiencies.',
+    education: 'Currently pursuing a Bachelor\'s Degree in Computer Engineering'
+};
+
+// Technical Skills
+export const SKILLS = {
+    coreTech: [
+        'JavaScript / TypeScript',
+        'Vue.js (Ecosystem)',
+        'Angular',
+        'React',
+        'Node.js',
+        'HTML5 / CSS3'
+    ],
+    frameworks: [
+        'Vue 3 (Composition API)',
+        'Angular 14+',
+        'Vite / Webpack',
+        'Tailwind CSS',
+        'SASS/SCSS'
+    ],
+    testing: [
+        'Jest',
+        'Vitest',
+        'Cypress',
+        'Mocha',
+        'Jasmine'
+    ],
+    architecture: [
+        'Microfrontends',
+        'Microservices Integration',
+        'State Management (Pinia, Vuex)',
+        'Design Patterns',
+        'SOLID Principles',
+        'Code Refactoring'
+    ],
+    tools: [
+        'Git / GitLab',
+        'CI/CD',
+        'Agile / Scrum',
+        'Code Reviews',
+        'Technical Mentoring'
+    ]
 };

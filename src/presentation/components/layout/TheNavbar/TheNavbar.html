@@ -6,7 +6,7 @@
         </a>
 
         <!-- Desktop Menu -->
-        <div class="hidden md:flex space-x-8 font-mono text-xs tracking-widest text-lightSlate">
+        <div class="hidden md:flex space-x-8 items-center font-mono text-xs tracking-widest text-lightSlate">
             <a v-for="link in navLinks" :key="link.href" :href="link.href" class="hover:text-green transition-colors">
                 <span class="text-green">{{ link.number }}</span> {{ link.label }}
             </a>

@@ -3,7 +3,7 @@
     <div
         class="flex md:flex-col overflow-x-auto md:overflow-visible border-b md:border-b-0 md:border-l border-lightestNavy w-full md:w-48 shrink-0">
         <button v-for="tab in tabs" :key="tab.id" @click="selectTab(tab.id)"
-            class="text-left px-5 py-3 font-mono text-sm transition-all focus:outline-none whitespace-nowrap border-b-2 md:border-b-0 md:border-l-2"
+            class="text-left px-5 py-3 font-mono text-sm transition-all focus:outline-none border-b-2 md:border-b-0 md:border-l-2"
             :class="isActive(tab.id) 
         ? 'text-green bg-lightNavy border-green' 
         : 'text-slate border-transparent hover:bg-lightNavy hover:text-green'">

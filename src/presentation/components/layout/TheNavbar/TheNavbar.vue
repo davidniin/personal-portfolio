@@ -30,10 +30,6 @@ export default {
      *                VIEW LIFECYCLE                      *
      ******************************************************/
     
-    onMounted(() => {
-      initNavbarScroll();
-    });
-
     /******************************************************
      *                VIEW EVENTS                         *
      ******************************************************/
@@ -50,19 +46,6 @@ export default {
      *                HELPER FUNCTIONS                    *
      ******************************************************/
     
-    const initNavbarScroll = () => {
-      let lastScrollY = window.scrollY;
-      const navbar = document.getElementById('navbar');
-      
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > lastScrollY && window.scrollY > 100) {
-          navbar?.classList.add('-translate-y-full');
-        } else {
-          navbar?.classList.remove('-translate-y-full');
-        }
-        lastScrollY = window.scrollY;
-      });
-    };
 
     /******************************************************
      *                RETURN                              *

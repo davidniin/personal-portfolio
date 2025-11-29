@@ -4,8 +4,9 @@
     <BaseTabs :tabs="tabList" :model-value="activeTabId" @update:model-value="$emit('update:activeTabId', $event)">
         <template #default="{ activeTab }">
             <div v-for="job in jobs" :key="job.id" v-show="activeTab === job.id" class="animate-fadeIn">
-                <h3 class="text-xl font-bold text-white mb-1">
-                    {{ job.role }} <span class="text-green">@ {{ job.company }}</span>
+                <h3 class="text-xl font-bold text-white mb-1 flex flex-wrap items-baseline gap-x-2">
+                    <span>{{ job.role }}</span>
+                    <span class="text-green">@ {{ job.company }}</span>
                 </h3>
                 <p class="font-mono text-xs text-lightSlate mb-6">{{ job.dates }}</p>
                 <div class="space-y-4 text-slate text-base">

@@ -6,6 +6,8 @@ import SectionHeader from '../../layout/SectionHeader/SectionHeader.vue';
 import BaseCard from '../../ui/BaseCard/BaseCard.vue';
 import BaseButton from '../../ui/BaseButton/BaseButton.vue';
 
+import { SOCIAL_LINKS } from '../../../../infrastructure/config/portfolio.config.js';
+
 export default {
   name: 'ProjectsSection',
   
@@ -34,7 +36,7 @@ export default {
      ******************************************************/
     
     const openGithub = () => {
-      window.open('https://github.com/DavidNinMur', '_blank');
+      window.open(SOCIAL_LINKS.github, '_blank');
     };
 
     /******************************************************
@@ -42,6 +44,7 @@ export default {
      ******************************************************/
     
     return {
+      SOCIAL_LINKS,
       openGithub
     };
   }
