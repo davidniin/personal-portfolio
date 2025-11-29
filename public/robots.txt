@@ -1,0 +1,9 @@
+# robots.txt for davidnin.dev
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://davidnin.dev/sitemap.xml
+
+# Disallow admin or private paths (if any)
+# Disallow: /admin/
