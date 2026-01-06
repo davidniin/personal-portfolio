@@ -5,14 +5,14 @@
         leave-from-class="translate-y-0 opacity-100" leave-to-class="translate-y-10 opacity-0">
         <div v-if="isChatOpen"
             class="bg-lightNavy border border-lightestNavy shadow-2xl rounded-lg w-[320px] md:w-[380px] h-[450px] mb-4 flex flex-col">
-            <!-- Header -->
-            <div class="bg-navy p-3 rounded-t-lg border-b border-lightestNavy flex justify-between items-center">
+            <!-- Chat Header -->
+            <div class="flex justify-between items-center p-4 border-b border-lightestNavy bg-lightNavy">
                 <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 rounded-full bg-green animate-pulse"></div>
-                    <span class="text-white font-mono font-bold text-xs">NinIA (Beta)</span>
+                    <Sparkles class="w-5 h-5 text-green" />
+                    <h3 class="font-bold text-white">{{ $t('chat.title') }}</h3>
                 </div>
-                <button @click="$emit('toggle-chat')" class="text-lightSlate hover:text-white transition-colors">
-                    <X class="w-4 h-4" />
+                <button @click="$emit('toggle-chat')" class="text-slate hover:text-white transition-colors">
+                    <X class="w-5 h-5" />
                 </button>
             </div>
 
@@ -38,7 +38,7 @@
             <div class="p-3 bg-navy rounded-b-lg border-t border-lightestNavy">
                 <form @submit.prevent="$emit('send-message')" class="flex gap-2">
                     <input :value="userInput" @input="$emit('update:userInput', $event.target.value)"
-                        :disabled="isThinking" type="text" placeholder="Pregunta sobre Vue o Liderazgo..."
+                        :disabled="isThinking" type="text" :placeholder="$t('chat.placeholder')"
                         class="flex-1 bg-lightNavy border border-lightestNavy text-white text-xs rounded px-3 py-2 focus:outline-none focus:border-green transition-colors disabled:opacity-50">
                     <button type="submit" :disabled="!userInput || isThinking"
                         class="bg-green/10 text-green border border-green p-2 rounded hover:bg-green/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">

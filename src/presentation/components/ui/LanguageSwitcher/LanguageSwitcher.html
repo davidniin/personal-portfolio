@@ -1,0 +1,29 @@
+<div class="language-switcher">
+  <button 
+    @click="toggleDropdown" 
+    class="language-button"
+    aria-label="Change language"
+  >
+    <Globe :size="16" />
+    <span>{{ currentLanguage }}</span>
+  </button>
+
+  <Transition name="fade">
+    <div v-if="isOpen" class="language-dropdown">
+      <button 
+        @click="changeLanguage('es')" 
+        class="language-option"
+        :class="{ active: locale === 'es' }"
+      >
+        🇪🇸 Español
+      </button>
+      <button 
+        @click="changeLanguage('en')" 
+        class="language-option"
+        :class="{ active: locale === 'en' }"
+      >
+        🇬🇧 English
+      </button>
+    </div>
+  </Transition>
+</div>

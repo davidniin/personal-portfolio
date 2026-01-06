@@ -8,60 +8,43 @@ import { Project } from '../../domain/models/Project.js';
 
 // Navigation Links
 export const NAV_LINKS = [
-    { href: '#about', label: 'ABOUT', number: '01.' },
-    { href: '#experience', label: 'EXPERIENCE', number: '02.' },
-    { href: '#projects', label: 'LABS', number: '03.' },
-    { href: '#contact', label: 'CONTACT', number: '04.' },
+    { href: '#about', label: 'ABOUT', labelKey: 'about', number: '01.' },
+    { href: '#experience', label: 'EXPERIENCE', labelKey: 'experience', number: '02.' },
+    { href: '#projects', label: 'LABS', labelKey: 'labs', number: '03.' },
+    { href: '#contact', label: 'CONTACT', labelKey: 'contact', number: '04.' },
 ];
 
 // Professional Experience
 export const JOBS = [
     new Job({
+        id: 'vertex',
+        company: 'Vertex Digital',
+        role: 'CEO & Founder',
+        dates: 'Jan 2024 - Present | Barcelona'
+    }),
+    new Job({
         id: 'amadeus',
         company: 'Amadeus',
         role: 'Senior Frontend Developer',
-        dates: 'May 2023 - Present | Barcelona',
-        bullets: [
-            { text: 'Engineering scalable frontend architectures using Angular, React, and Vue.js for the travel sector, ensuring high availability and performance for mission-critical applications.' },
-            { text: 'Elevating code standards through comprehensive testing suites (Jest, Cypress) and rigorous peer code reviews to minimize technical debt.' },
-            { text: 'Driving Agile best practices within the team to streamline delivery pipelines and improve sprint velocity.' },
-            { text: 'Mentoring junior developers and interns, accelerating their technical onboarding and fostering a collaborative engineering culture.' }
-        ]
+        dates: 'May 2023 - Present | Barcelona'
     }),
     new Job({
         id: 't2c',
         company: 'Technology 2 Client (T2C)',
         role: 'Front Web Developer',
-        dates: 'Nov 2020 - May 2023 | Barcelona',
-        bullets: [
-            { text: 'Developed a client-facing application from scratch using Vue.js, adhering to Agile methodologies and GitLab workflows.' },
-            { text: 'Executed the migration of the codebase from Vue 2 to Vue 3, ensuring seamless functionality and improved modern standards.' },
-            { text: 'Integrated the frontend with a microservices architecture via REST APIs and managed complex application state using Vuex.' },
-            { text: 'Built responsive and modular user interfaces using SCSS and Tailwind CSS.' },
-            { text: 'Supported the growth of junior developers by defining technical tasks based on use cases and conducting code reviews to ensure quality.' }
-        ]
+        dates: 'Nov 2020 - May 2023 | Barcelona'
     }),
     new Job({
         id: 'quantion',
         company: 'Quantion',
         role: 'Full Stack Developer',
-        dates: 'Jun 2019 - Jul 2020 | Barcelona',
-        bullets: [
-            { text: 'Migrated legacy codebases from Angular 5 to Angular 8, improving performance and maintainability.' },
-            { text: 'Established testing culture by writing comprehensive unit tests using Mocha & Jasmine.' },
-            { text: 'Developed full-stack solutions with Node.js (v14) backend services.' },
-            { text: 'Deepened knowledge of AGILE methodologies and software development best practices.' }
-        ]
+        dates: 'Jun 2019 - Jul 2020 | Barcelona'
     }),
     new Job({
         id: 'sigma',
         company: 'Sigma',
         role: 'Java Developer',
-        dates: 'Oct 2018 - Sep 2019 | Sabadell',
-        bullets: [
-            { text: 'Worked with Java 6 and internal proprietary frameworks in enterprise development.' },
-            { text: 'Gained foundational experience in software development lifecycles and enterprise patterns.' }
-        ]
+        dates: 'Oct 2018 - Sep 2019 | Sabadell'
     })
 ];
 

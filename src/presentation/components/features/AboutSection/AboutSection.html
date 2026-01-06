@@ -1,5 +1,5 @@
 <section id="about" class="py-24 max-w-4xl fade-in-up">
-    <SectionHeader number="01.">About Me</SectionHeader>
+    <SectionHeader number="01.">{{ $t('about.title') }}</SectionHeader>
 
     <div class="grid md:grid-cols-3 gap-12">
         <!-- Image Column - First on mobile, second on desktop -->
@@ -15,21 +15,21 @@
         <!-- Text Content - Second on mobile, first on desktop -->
         <div class="md:col-span-2 text-slate leading-7 text-lg order-2 md:order-1">
             <p class="mb-4">
-                My journey began in <span class="text-green">2017</span>, pivoting from systems to software development.
-                Since then, I've had the opportunity to build scalable solutions for
-                <span class="text-green">Sigma</span>, <span class="text-green">Quantion</span>, and
-                <span class="text-green">T2C</span>, and now I'm tackling global-scale challenges at
-                <span class="text-white font-semibold">Amadeus</span> in the travel sector.
+                {{ $t('about.paragraph1.part1') }} <span class="text-green">{{ $t('about.paragraph1.year') }}</span>{{
+                $t('about.paragraph1.part2') }}
+                <span class="text-green">Sigma</span>, <span class="text-green">Quantion</span> {{
+                $t('about.paragraph1.part3') }}
+                <span class="text-green">T2C</span>{{ $t('about.paragraph1.part4') }}
+                <span class="text-white font-semibold">Amadeus</span> {{ $t('about.paragraph1.part5') }}
             </p>
             <p class="mb-4">
-                I don't just write code; I care about <span class="text-green">team dynamics</span> and the
-                <span class="text-green">"Why"</span> behind features. Whether it's optimizing a render cycle,
-                mentoring a junior developer, or driving Agile best practices, I aim for excellence.
+                {{ $t('about.paragraph2.part1') }} <span class="text-green">{{ $t('about.paragraph2.teamDynamics')
+                    }}</span> {{ $t('about.paragraph2.part2') }}
+                <span class="text-green">{{ $t('about.paragraph2.why') }}</span> {{ $t('about.paragraph2.part3') }}
             </p>
             <p class="mb-8">
-                Currently pursuing a <span class="text-green">Bachelor's Degree in Computer Engineering</span>,
-                I'm deeply committed to continuous learning and professional growth, constantly seeking to absorb
-                knowledge from my environment.
+                {{ $t('about.paragraph3.part1') }} <span class="text-green">{{ $t('about.paragraph3.degree') }}</span>{{
+                $t('about.paragraph3.part2') }}
             </p>
 
             <!-- Accordions -->
@@ -39,7 +39,7 @@
                     <template #icon>
                         <Cpu class="w-5 h-5 text-green group-hover:scale-110 transition-transform" />
                     </template>
-                    <template #title>Core Technologies</template>
+                    <template #title>{{ $t('about.skills.coreTech.title') }}</template>
                     <template #content>
                         <ul class="p-4 grid grid-cols-2 gap-3 font-mono text-sm">
                             <li class="flex items-center">
@@ -75,7 +75,7 @@
                     <template #icon>
                         <Layers class="w-5 h-5 text-green group-hover:scale-110 transition-transform" />
                     </template>
-                    <template #title>Architecture & Patterns</template>
+                    <template #title>{{ $t('about.skills.architecture.title') }}</template>
                     <template #content>
                         <ul class="p-4 grid grid-cols-2 gap-3 font-mono text-sm">
                             <li class="flex items-center">
@@ -105,28 +105,13 @@
                     <template #icon>
                         <Users class="w-5 h-5 text-green group-hover:scale-110 transition-transform" />
                     </template>
-                    <template #title>Beyond the Code</template>
+                    <template #title>{{ $t('about.skills.beyondCode.title') }}</template>
                     <template #content>
                         <ul class="p-4 space-y-3 text-sm">
-                            <li class="flex items-start gap-2">
+                            <li v-for="(item, index) in $tm('about.skills.beyondCode.items')" :key="index"
+                                class="flex items-start gap-2">
                                 <CheckCircle class="w-4 h-4 text-green mt-1 shrink-0" />
-                                <span><strong>Mentoring & Leadership:</strong> Training junior developers and interns,
-                                    conducting code reviews, and fostering collaborative engineering culture.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <CheckCircle class="w-4 h-4 text-green mt-1 shrink-0" />
-                                <span><strong>Agile Collaboration:</strong> Active in Sprint Planning, Dailies, and
-                                    Retrospectives to streamline delivery pipelines.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <CheckCircle class="w-4 h-4 text-green mt-1 shrink-0" />
-                                <span><strong>Quality Assurance:</strong> Implementing comprehensive testing suites
-                                    and rigorous peer reviews to minimize technical debt.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <CheckCircle class="w-4 h-4 text-green mt-1 shrink-0" />
-                                <span><strong>Continuous Learning:</strong> Currently pursuing Bachelor's Degree in
-                                    Computer Engineering while staying updated with industry trends.</span>
+                                <span><strong>{{ item.title }}:</strong> {{ item.description }}</span>
                             </li>
                         </ul>
                     </template>

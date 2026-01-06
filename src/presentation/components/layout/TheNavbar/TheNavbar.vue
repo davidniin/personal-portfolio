@@ -3,13 +3,15 @@
 <script>
 import { Menu, X } from 'lucide-vue-next';
 import { onMounted } from 'vue';
+import LanguageSwitcher from '../../ui/LanguageSwitcher/LanguageSwitcher.vue';
 
 export default {
   name: 'TheNavbar',
   
   components: {
     Menu,
-    X
+    X,
+    LanguageSwitcher
   },
   
   props: {

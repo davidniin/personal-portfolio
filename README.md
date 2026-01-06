@@ -263,7 +263,7 @@ npm run deploy
 - [ ] Implement unit tests (Vitest)
 - [ ] Add E2E tests (Playwright)
 - [ ] Add blog section with MDX
-- [ ] Implement i18n (multi-language)
+- [x] Implement i18n (multi-language) - ✅ Spanish & English supported
 - [ ] Add PWA support
 - [ ] Integrate analytics
 - [ ] Add project detail pages

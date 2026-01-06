@@ -9,22 +9,22 @@
     </div>
 
     <h1 class="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight fade-in-up delay-100">
-        {{ personalInfo.name }}.
+        {{ $t('hero.name') }}.
     </h1>
 
     <h2 class="text-4xl md:text-6xl font-bold text-slate mb-8 tracking-tight fade-in-up delay-200">
-        {{ personalInfo.tagline }}
+        {{ $t('hero.subtitle') }}
     </h2>
 
     <p class="text-slate max-w-xl text-lg leading-relaxed mb-12 fade-in-up delay-300">
-        {{ personalInfo.description }} Currently scaling products at
+        {{ $t('hero.description') }} {{ $t('hero.currentlyAt') }}
         <a href="#" class="text-green hover:underline decoration-green/50 underline-offset-4">{{ personalInfo.company
             }}</a>.
     </p>
 
     <div class="fade-in-up delay-300 flex flex-row gap-4">
         <BaseButton variant="primary" @click="$emit('navigate-projects')">
-            Check my Repos
+            {{ $t('hero.cta.projects') }}
         </BaseButton>
         <BaseButton variant="secondary" @click="$emit('toggle-chat')">
             <Sparkles class="w-4 h-4 group-hover:rotate-12 transition-transform" /> Ask NinIA
