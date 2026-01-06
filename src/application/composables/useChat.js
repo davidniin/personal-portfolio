@@ -1,4 +1,5 @@
 import { ref, nextTick } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { ChatService } from '../../domain/services/ChatService.js';
 import { GeminiClient } from '../../infrastructure/api/GeminiClient.js';
 
@@ -7,6 +8,7 @@ import { GeminiClient } from '../../infrastructure/api/GeminiClient.js';
  * Manages chat widget state and message handling
  */
 export function useChat(apiKey = '') {
+    const { locale } = useI18n();
     const isChatOpen = ref(false);
     const chatMessages = ref([ChatService.createWelcomeMessage()]);
     const userInput = ref('');
@@ -45,9 +47,11 @@ export function useChat(apiKey = '') {
         scrollToBottom();
 
         try {
+            // Pass current locale to get context in the right language
+            const currentLanguage = locale.value || 'en';
             const aiResponse = await geminiClient.generateContent(
                 validation.text,
-                GeminiClient.getDavidContext()
+                GeminiClient.getDavidContext(currentLanguage)
             );
 
             chatMessages.value.push(ChatService.createAIMessage(aiResponse));

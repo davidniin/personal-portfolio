@@ -203,24 +203,19 @@ export default {
     // Projects Section
     projects: {
         title: 'Some things I\'ve built',
-        categories: {
-            all: 'All',
-            architecture: 'Architecture',
-            qualityAssurance: 'Quality Assurance',
-            experiment: 'Experiment'
-        },
+        description: 'A selection of websites I\'ve developed, showcasing different approaches and technologies.',
         items: {
-            vue3Migration: {
-                title: 'vue3-migration-poc',
-                description: 'A proof-of-concept repository exploring the migration path from Options API to Composition API. Includes custom composables for state management.'
+            essentials: {
+                title: 'Vertex Essentials',
+                description: 'Pure Speed & Mobile-First Ultra-lightweight architecture designed for instant load times (<0.5s). Prioritizes absolute mobile performance and perfect Core Web Vitals for maximum user retention.'
             },
-            frontendTesting: {
-                title: 'frontend-testing-suite',
-                description: 'A comprehensive setup for unit and integration testing. Demonstrates how to achieve high code coverage in legacy and modern frameworks.'
+            professional: {
+                title: 'Vertex Professional',
+                description: 'Brand Identity & SEO Robust infrastructure that balances premium aesthetics with technical SEO structure. Designed to communicate brand authority and institutional solidity.'
             },
-            ngMicrofrontend: {
-                title: 'ng-microfrontend-shell',
-                description: 'An experimental shell application using Module Federation to load Angular micro-frontends dynamically. Focus on shared state and performance.'
+            elite: {
+                title: 'Vertex Elite',
+                description: 'Conversion & UX Advanced PWA architecture with smooth micro-interactions and enrollment funnels. Behavior-centered engineering to guide user behavior towards enrollment.'
             }
         }
     },

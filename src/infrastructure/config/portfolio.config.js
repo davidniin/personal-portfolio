@@ -48,28 +48,34 @@ export const JOBS = [
     })
 ];
 
-// Portfolio Projects
+// Portfolio Projects - Live Websites
 export const PROJECTS = [
     new Project({
-        title: 'vue3-migration-poc',
-        description: 'A proof-of-concept repository exploring the migration path from Options API to Composition API. Includes custom composables for state management.',
-        tags: ['Vue 3', 'Vite', 'TypeScript'],
-        category: 'Architecture',
+        id: 'essentials',
+        title: 'Vertex Essentials',
+        url: 'https://essentials.vertexdigital.es/',
+        image: '/images/projects/essentials-example.png',
+        tags: ['Performance', 'Mobile First', 'Landing Page', 'WPO', 'Next.js'],
+        category: 'Web Development',
         colorClass: 'text-green border-green/30 bg-green/10'
     }),
     new Project({
-        title: 'frontend-testing-suite',
-        description: 'A comprehensive setup for unit and integration testing. Demonstrates how to achieve high code coverage in legacy and modern frameworks.',
-        tags: ['Jest', 'Vitest', 'Cypress'],
-        category: 'Quality Assurance',
-        colorClass: 'text-yellow-500 border-yellow-500/30 bg-yellow-500/10'
+        id: 'professional',
+        title: 'Vertex Professional',
+        url: 'https://pro.vertexdigital.es/',
+        image: '/images/projects/pro-example.png',
+        tags: ['Corporate Identity', 'Technical SEO', 'Branding', 'Business', 'Next.js'],
+        category: 'Web Development',
+        colorClass: 'text-green border-green/30 bg-green/10'
     }),
     new Project({
-        title: 'ng-microfrontend-shell',
-        description: 'An experimental shell application using Module Federation to load Angular micro-frontends dynamically. Focus on shared state and performance.',
-        tags: ['Angular 14+', 'RxJS', 'Webpack 5'],
-        category: 'Experiment',
-        colorClass: 'text-blue-500 border-blue-500/30 bg-blue-500/10'
+        id: 'elite',
+        title: 'Vertex Elite',
+        url: 'https://elite.vertexdigital.es/',
+        image: '/images/projects/elite-example.png',
+        tags: ['High Conversion', 'Advanced UX', 'Motion Graphics', 'Lead Gen', 'PWA', 'Next.js'],
+        category: 'Web Development',
+        colorClass: 'text-green border-green/30 bg-green/10'
     })
 ];
 

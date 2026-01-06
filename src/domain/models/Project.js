@@ -3,12 +3,14 @@
  * Represents a portfolio project/repository
  */
 export class Project {
-    constructor({ title, description, tags, category, colorClass }) {
+    constructor({ id, title, tags, category, colorClass, url, image }) {
+        this.id = id; // Unique identifier for i18n lookup
         this.title = title;
-        this.description = description;
         this.tags = tags;
         this.category = category;
         this.colorClass = colorClass;
+        this.url = url; // Live website URL
+        this.image = image; // Preview image path
     }
 
     /**

@@ -5,6 +5,7 @@
 // IMPORTS
 // ============================================================================
 import { ref, reactive, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { SpeedInsights } from "@vercel/speed-insights/vue";
 import { inject } from '@vercel/analytics';
 
@@ -52,6 +53,7 @@ export default {
   emits: [],
 
   setup(props, { emit }) {
+    const { locale } = useI18n();
     /******************************************************
      *                VARIABLES                           *
      ******************************************************/
@@ -144,9 +146,10 @@ export default {
       scrollToBottom();
 
       try {
+        const currentLanguage = locale.value || 'en';
         const aiResponse = await geminiClient.generateContent(
           validation.text,
-          GeminiClient.getDavidContext()
+          GeminiClient.getDavidContext(currentLanguage)
         );
 
         chatMessages.value.push(ChatService.createAIMessage(aiResponse));

@@ -2,45 +2,106 @@
     <SectionHeader number="03.">{{ $t('projects.title') }}</SectionHeader>
 
     <p class="text-slate mb-12 max-w-2xl">
-        A selection of repositories from my
-        <a :href="SOCIAL_LINKS.github" target="_blank" class="text-green hover:underline">GitHub</a> where I explore new
-        patterns.
+        {{ $t('projects.description') }}
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <BaseCard v-for="(project, index) in projects" :key="index">
-            <div class="flex justify-between items-center mb-6">
-                <Folder class="w-10 h-10 text-green" />
-                <div class="flex gap-4">
-                    <Github class="w-5 h-5 text-slate hover:text-green transition-colors cursor-pointer" />
-                    <ExternalLink class="w-5 h-5 text-slate hover:text-green transition-colors cursor-pointer" />
+    <!-- Projects Slider -->
+    <div class="relative max-w-6xl mx-auto">
+        <!-- Slider Container -->
+        <div class="overflow-hidden px-4">
+            <div class="transition-transform duration-700 ease-in-out"
+                :style="{ transform: `translateX(calc(-${currentIndex * 50}% - ${currentIndex * 1.5}rem))` }">
+                <div class="flex gap-6">
+                    <!-- Duplicated projects for infinite effect -->
+                    <div v-for="(project, index) in duplicatedProjects" :key="`project-${index}`"
+                        class="w-[calc(50%-0.75rem)] flex-shrink-0">
+                        <a :href="project.url" target="_blank" rel="noopener noreferrer" class="block group h-full">
+                            <div
+                                class="bg-lightNavy/50 backdrop-blur-sm border border-lightestNavy/50 rounded-xl overflow-hidden hover:border-green/50 hover:bg-lightNavy/80 transition-all duration-300 h-full flex flex-col shadow-lg hover:shadow-green/10">
+                                <!-- Project Image -->
+                                <div class="relative overflow-hidden aspect-video bg-navy/50">
+                                    <img v-if="project.image" :src="project.image" :alt="project.title"
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                        @error="$event.target.src = '/images/projects/placeholder.jpg'">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent">
+                                    </div>
+
+                                    <!-- Overlay Icon -->
+                                    <div
+                                        class="absolute top-4 right-4 bg-green/20 backdrop-blur-md border border-green/40 rounded-full p-2.5 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                                        <ExternalLink class="w-4 h-4 text-green" />
+                                    </div>
+
+                                    <!-- Project Number Badge -->
+                                    <div
+                                        class="absolute bottom-4 left-4 bg-navy/80 backdrop-blur-sm border border-green/30 rounded-full px-4 py-1.5">
+                                        <span class="text-green font-mono text-sm font-bold">
+                                            {{ String((index % projects.length) + 1).padStart(2, '0') }}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Project Info -->
+                                <div class="p-5 flex-1 flex flex-col">
+                                    <div class="flex items-start justify-between mb-3 gap-3">
+                                        <h3
+                                            class="text-white font-bold text-xl group-hover:text-green transition-colors leading-tight">
+                                            {{ project.title }}
+                                        </h3>
+                                        <span
+                                            class="text-[9px] uppercase tracking-widest px-2.5 py-1 rounded-full whitespace-nowrap flex-shrink-0 border"
+                                            :class="project.colorClass">
+                                            {{ project.category }}
+                                        </span>
+                                    </div>
+
+                                    <p class="text-slate/90 text-sm mb-4 leading-relaxed line-clamp-3 flex-1">
+                                        {{ $t(`projects.items.${project.id}.description`) }}
+                                    </p>
+
+                                    <!-- Tags -->
+                                    <div class="mt-auto">
+                                        <ul class="flex flex-wrap gap-2">
+                                            <li v-for="tag in project.tags.slice(0, 4)" :key="tag"
+                                                class="font-mono text-[10px] text-green/90 bg-green/5 px-2.5 py-1 rounded-md border border-green/10">
+                                                {{ tag }}
+                                            </li>
+                                            <li v-if="project.tags.length > 4"
+                                                class="font-mono text-[10px] text-slate/70 bg-slate/5 px-2.5 py-1 rounded-md border border-slate/10">
+                                                +{{ project.tags.length - 4 }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <h3 class="text-white font-bold text-xl mb-2 group-hover:text-green transition-colors font-mono">
-                {{ project.title }}
-            </h3>
+        <!-- Navigation Controls -->
+        <div class="flex items-center justify-center gap-4 mt-10">
+            <!-- Previous Button -->
+            <button @click="prevSlide"
+                class="group bg-lightNavy/60 backdrop-blur-sm border border-green/20 text-green p-3 rounded-full hover:bg-green/10 hover:border-green/40 transition-all duration-300 hover:scale-110 active:scale-95">
+                <ChevronLeft class="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+            </button>
 
-            <div class="mb-4">
-                <span class="text-[10px] uppercase tracking-wider px-2 py-1 rounded" :class="project.colorClass">
-                    {{ project.category }}
-                </span>
+            <!-- Dots Indicator -->
+            <div class="flex gap-2">
+                <button v-for="(project, index) in projects" :key="index" @click="goToSlide(index)"
+                    class="transition-all duration-300 rounded-full" :class="(currentIndex % projects.length) === index 
+                            ? 'bg-green w-10 h-2' 
+                            : 'bg-slate/20 hover:bg-slate/40 w-2 h-2'">
+                </button>
             </div>
 
-            <p class="text-lightSlate text-sm mb-6 flex-grow">
-                {{ project.description }}
-            </p>
-
-            <ul class="font-mono text-xs text-slate flex flex-wrap gap-3 mt-auto">
-                <li v-for="tag in project.tags" :key="tag">{{ tag }}</li>
-            </ul>
-        </BaseCard>
-    </div>
-
-    <div class="mt-12 text-center">
-        <BaseButton variant="secondary" @click="openGithub">
-            View Full GitHub Profile
-            <ArrowRight class="w-4 h-4" />
-        </BaseButton>
+            <!-- Next Button -->
+            <button @click="nextSlide"
+                class="group bg-lightNavy/60 backdrop-blur-sm border border-green/20 text-green p-3 rounded-full hover:bg-green/10 hover:border-green/40 transition-all duration-300 hover:scale-110 active:scale-95">
+                <ChevronRight class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+        </div>
     </div>
 </section>

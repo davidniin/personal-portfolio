@@ -204,24 +204,19 @@ export default {
   // Projects Section
   projects: {
     title: 'Algunos proyectos en los que he trabajado',
-    categories: {
-      all: 'Todos',
-      architecture: 'Arquitectura',
-      qualityAssurance: 'Quality Assurance',
-      experiment: 'Experimento'
-    },
+    description: 'Una selección de sitios web que he desarrollado, mostrando diferentes enfoques y tecnologías.',
     items: {
-      vue3Migration: {
-        title: 'vue3-migration-poc',
-        description: 'Un repositorio de prueba de concepto explorando la ruta de migración de Options API a Composition API. Incluye composables personalizados para gestión de estado.'
+      essentials: {
+        title: 'Vertex Essentials',
+        description: 'Velocidad Pura & Mobile-First Arquitectura web ultra-ligera diseñada para carga instantánea (<0.5s). Prioridad absoluta al rendimiento móvil y Core Web Vitals perfectos para máxima retención.'
       },
-      frontendTesting: {
-        title: 'frontend-testing-suite',
-        description: 'Una configuración completa para pruebas unitarias e de integración. Demuestra cómo lograr alta cobertura de código en frameworks legacy y modernos.'
+      professional: {
+        title: 'Vertex Professional',
+        description: 'Identidad Corporativa & SEO Infraestructura robusta que equilibra estética premium con SEO técnico estructural. Diseñada para transmitir autoridad de marca y solidez institucional.'
       },
-      ngMicrofrontend: {
-        title: 'ng-microfrontend-shell',
-        description: 'Una aplicación shell experimental usando Module Federation para cargar micro-frontends de Angular dinámicamente. Enfoque en estado compartido y rendimiento.'
+      elite: {
+        title: 'Vertex Elite',
+        description: 'Conversión & UX Avanzada PWA de alto rendimiento con micro-interacciones fluidas y funnels de captación. Ingeniería centrada en guiar el comportamiento del usuario hacia la matrícula.'
       }
     }
   },
