@@ -4,7 +4,7 @@
 // ============================================================================
 // IMPORTS
 // ============================================================================
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { SpeedInsights } from "@vercel/speed-insights/vue";
 import { inject } from '@vercel/analytics';
@@ -31,7 +31,7 @@ import ChatWidget from './presentation/components/features/ChatWidget/ChatWidget
 
 // Services
 import { ChatService } from './domain/services/ChatService.js';
-import { GeminiClient } from './infrastructure/api/GeminiClient.js';
+import { ChatClient } from './infrastructure/api/ChatClient.js';
 
 export default {
   name: 'App',
@@ -53,7 +53,7 @@ export default {
   emits: [],
 
   setup(props, { emit }) {
-    const { locale } = useI18n();
+    const { t, locale } = useI18n();
     /******************************************************
      *                VARIABLES                           *
      ******************************************************/
@@ -61,12 +61,12 @@ export default {
     // Refs: reactive variables
     const isMobileMenuOpen = ref(false);
     const isChatOpen = ref(false);
-    const chatMessages = ref([ChatService.createWelcomeMessage()]);
+    const chatMessages = ref([ChatService.createWelcomeMessage(t('chat.welcome'))]);
     const userInput = ref('');
     const isThinking = ref(false);
     const chatContainerRef = ref(null);
     const activeTabId = ref('amadeus');
-    
+
     // Reactive objects
     const accordionState = reactive({
       coreTech: false,
@@ -75,25 +75,27 @@ export default {
     });
 
     // Normal variables (non-reactive)
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
-    let geminiClient = null;
+    const chatClient = new ChatClient();
+
+    // Keep the still-untouched welcome bubble in sync if the visitor
+    // switches language before ever sending a message.
+    watch(locale, () => {
+      if (chatMessages.value.length === 1 && chatMessages.value[0].sender === 'ai') {
+        chatMessages.value = [ChatService.createWelcomeMessage(t('chat.welcome'))];
+      }
+    });
 
     /******************************************************
      *                VIEW LIFECYCLE                      *
      ******************************************************/
-    
+
     onMounted(() => {
-      console.log('App mounted - with external template');
-      
       // Initialize Vercel Analytics
       inject();
-      
-      // Initialize API client
-      geminiClient = new GeminiClient(apiKey);
-      
+
       // Scroll animations
       observeElements();
-      
+
       // Spotlight effect
       window.addEventListener('mousemove', handleMouseMove);
     });
@@ -147,15 +149,12 @@ export default {
 
       try {
         const currentLanguage = locale.value || 'en';
-        const aiResponse = await geminiClient.generateContent(
-          validation.text,
-          GeminiClient.getDavidContext(currentLanguage)
-        );
+        const aiResponse = await chatClient.generateContent(validation.text, currentLanguage);
 
         chatMessages.value.push(ChatService.createAIMessage(aiResponse));
       } catch (error) {
-        const errorType = error.message.includes('API') ? 'api' : 'connection';
-        chatMessages.value.push(ChatService.createErrorMessage(errorType));
+        const errorKey = error.message === 'connection' ? 'chat.errors.connection' : 'chat.errors.api';
+        chatMessages.value.push(ChatService.createErrorMessage(t(errorKey)));
       } finally {
         isThinking.value = false;
         await new Promise(resolve => setTimeout(resolve, 0));

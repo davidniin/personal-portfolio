@@ -1,6 +1,7 @@
 <div class="border border-lightestNavy bg-lightNavy rounded-lg overflow-hidden transition-all duration-300 hover:border-green/50"
     :class="{ 'bg-navy/50': isOpen }">
-    <button @click="toggle" class="w-full flex justify-between items-center p-4 text-left focus:outline-none group">
+    <button @click="toggle" :aria-expanded="isOpen" :aria-controls="panelId"
+        class="w-full flex justify-between items-center p-4 text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-inset">
         <div class="flex items-center gap-3">
             <slot name="icon" />
             <span class="font-mono text-white font-semibold">
@@ -11,7 +12,7 @@
             :class="{ 'rotate-180': isOpen }" />
     </button>
 
-    <div v-show="isOpen" class="border-t border-lightestNavy bg-navy/30">
+    <div :id="panelId" v-show="isOpen" class="border-t border-lightestNavy bg-navy/30">
         <slot name="content" />
     </div>
 </div>

@@ -137,19 +137,6 @@ export default {
     experience: {
         title: 'Where I\'ve worked',
         jobs: {
-            vertex: {
-                company: 'Vertex Digital',
-                role: 'CEO & Founder',
-                dates: 'Jan 2026 - Present | Barcelona',
-                bullets: [
-                    'Founded and lead Vertex Digital, a Web-as-a-Service company focused on the driving school industry, delivering high-performance digital platforms under a subscription-based model.',
-                    'Designed a scalable digital product that allows clients to rent a complete web infrastructure optimized for lead generation and student conversion.',
-                    'Act as a strategic technology partner, owning the full responsibility for web development, digital marketing, process automation, and ongoing maintenance.',
-                    'Define and implement frontend and backend architectures focused on performance, scalability, and operational simplicity, tailored to real business needs.',
-                    'Manage the full product lifecycle, from discovery and functional definition to technical design, deployment, monitoring, and continuous improvement.'
-                ]
-            },
-
             amadeus: {
                 company: 'Amadeus',
                 role: 'Senior Frontend Developer',
@@ -263,6 +250,7 @@ export default {
         close: 'Close',
         open: 'Open',
         viewMore: 'View more',
-        viewLess: 'View less'
+        viewLess: 'View less',
+        changeLanguage: 'Change language'
     }
 };

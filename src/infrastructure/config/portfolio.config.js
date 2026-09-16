@@ -17,12 +17,6 @@ export const NAV_LINKS = [
 // Professional Experience
 export const JOBS = [
     new Job({
-        id: 'vertex',
-        company: 'Vertex Digital',
-        role: 'CEO & Founder',
-        dates: 'Jan 2024 - Present | Barcelona'
-    }),
-    new Job({
         id: 'amadeus',
         company: 'Amadeus',
         role: 'Senior Frontend Developer',
@@ -54,7 +48,7 @@ export const PROJECTS = [
         id: 'essentials',
         title: 'Vertex Essentials',
         url: 'https://essentials.vertexdigital.es/',
-        image: '/images/projects/essentials-example.png',
+        image: '/images/projects/essentials-example.jpg',
         tags: ['Performance', 'Mobile First', 'Landing Page', 'WPO', 'Next.js'],
         category: 'Web Development',
         colorClass: 'text-green border-green/30 bg-green/10'
@@ -63,7 +57,7 @@ export const PROJECTS = [
         id: 'professional',
         title: 'Vertex Professional',
         url: 'https://pro.vertexdigital.es/',
-        image: '/images/projects/pro-example.png',
+        image: '/images/projects/pro-example.jpg',
         tags: ['Corporate Identity', 'Technical SEO', 'Branding', 'Business', 'Next.js'],
         category: 'Web Development',
         colorClass: 'text-green border-green/30 bg-green/10'
@@ -72,7 +66,7 @@ export const PROJECTS = [
         id: 'elite',
         title: 'Vertex Elite',
         url: 'https://elite.vertexdigital.es/',
-        image: '/images/projects/elite-example.png',
+        image: '/images/projects/elite-example.jpg',
         tags: ['High Conversion', 'Advanced UX', 'Motion Graphics', 'Lead Gen', 'PWA', 'Next.js'],
         category: 'Web Development',
         colorClass: 'text-green border-green/30 bg-green/10'

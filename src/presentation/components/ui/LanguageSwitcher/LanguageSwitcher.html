@@ -1,8 +1,9 @@
 <div class="language-switcher">
-  <button 
-    @click="toggleDropdown" 
+  <button
+    @click="toggleDropdown"
     class="language-button"
-    aria-label="Change language"
+    :aria-label="$t('common.changeLanguage')"
+    :aria-expanded="isOpen"
   >
     <Globe :size="16" />
     <span>{{ currentLanguage }}</span>

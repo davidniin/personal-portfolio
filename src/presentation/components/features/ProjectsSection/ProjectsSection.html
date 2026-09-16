@@ -21,6 +21,7 @@
                                 <!-- Project Image -->
                                 <div class="relative overflow-hidden aspect-video bg-navy/50">
                                     <img v-if="project.image" :src="project.image" :alt="project.title"
+                                        loading="lazy" decoding="async" width="1200" height="800"
                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                                         @error="$event.target.src = '/images/projects/placeholder.jpg'">
                                     <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent">

@@ -11,7 +11,8 @@
                     <Sparkles class="w-5 h-5 text-green" />
                     <h3 class="font-bold text-white">{{ $t('chat.title') }}</h3>
                 </div>
-                <button @click="$emit('toggle-chat')" class="text-slate hover:text-white transition-colors">
+                <button @click="$emit('toggle-chat')" :aria-label="$t('common.close')"
+                    class="text-slate hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green rounded">
                     <X class="w-5 h-5" />
                 </button>
             </div>
@@ -50,8 +51,9 @@
     </transition>
 
     <!-- Toggle Button -->
-    <button @click="$emit('toggle-chat')"
-        class="bg-green text-navy p-3 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 shadow-neon flex items-center justify-center">
+    <button @click="$emit('toggle-chat')" :aria-label="isChatOpen ? $t('common.close') : $t('chat.title')"
+        :aria-expanded="isChatOpen"
+        class="bg-green text-navy p-3 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 shadow-neon flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-navy">
         <Sparkles v-if="!isChatOpen" class="w-6 h-6" />
         <X v-else class="w-6 h-6" />
     </button>

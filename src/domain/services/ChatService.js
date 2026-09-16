@@ -1,16 +1,19 @@
+import { marked } from 'marked';
+import DOMPurify from 'dompurify';
 import { ChatMessage } from '../models/ChatMessage.js';
 
 /**
  * ChatService - Domain Service
- * Handles chat business logic
+ * Handles chat business logic. Stays framework-agnostic: callers pass in
+ * already-translated text rather than this service depending on i18n directly.
  */
 export class ChatService {
     /**
      * Create initial welcome message
      */
-    static createWelcomeMessage() {
+    static createWelcomeMessage(text) {
         return new ChatMessage({
-            text: "Hola! Soy <strong>NinIA</strong>.<br/>Pregúntame sobre la experiencia de David, sus habilidades de liderazgo o sus proyectos en Vue y Angular.",
+            text,
             sender: 'ai'
         });
     }
@@ -26,11 +29,13 @@ export class ChatService {
     }
 
     /**
-     * Create AI response message
+     * Create AI response message from raw provider text (markdown).
+     * Sanitized before being marked safe for v-html rendering.
      */
-    static createAIMessage(text) {
+    static createAIMessage(rawText) {
+        const html = DOMPurify.sanitize(marked.parse(rawText));
         return new ChatMessage({
-            text,
+            text: html,
             sender: 'ai'
         });
     }
@@ -38,15 +43,9 @@ export class ChatService {
     /**
      * Create error message
      */
-    static createErrorMessage(errorType = 'connection') {
-        const messages = {
-            connection: '⚠️ Connection error.',
-            api: '⚠️ Error connecting to NinIA.',
-            unknown: '⚠️ An unexpected error occurred.'
-        };
-
+    static createErrorMessage(text) {
         return new ChatMessage({
-            text: messages[errorType] || messages.unknown,
+            text,
             sender: 'ai'
         });
     }

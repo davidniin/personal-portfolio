@@ -14,6 +14,10 @@ export default {
     isOpen: {
       type: Boolean,
       default: false
+    },
+    panelId: {
+      type: String,
+      required: true
     }
   },
 

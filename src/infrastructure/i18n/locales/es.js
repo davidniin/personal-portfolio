@@ -137,19 +137,6 @@ export default {
   experience: {
     title: 'Dónde he trabajado',
     jobs: {
-      vertex: {
-        company: 'Vertex Digital',
-        role: 'CEO & Fundador',
-        dates: 'Ene 2026 - Presente | Barcelona',
-        bullets: [
-          'Fundé y lidero Vertex Digital, una empresa de Web-as-a-Service especializada en el sector de autoescuelas, ofreciendo plataformas digitales de alto rendimiento bajo modelo de suscripción.',
-          'Diseñé un producto digital escalable que permite a los clientes alquilar una infraestructura web completa, optimizada para captación de leads y conversión de alumnos.',
-          'Actúo como socio tecnológico estratégico, asumiendo la responsabilidad integral de desarrollo web, marketing digital, automatización de procesos y mantenimiento continuo.',
-          'Defino y ejecuto arquitecturas frontend y backend orientadas a rendimiento, escalabilidad y facilidad de operación, adaptadas a las necesidades reales del negocio.',
-          'Gestiono el ciclo de vida completo del producto: descubrimiento, definición funcional, diseño técnico, desarrollo, despliegue, monitorización y mejora continua.'
-        ]
-      },
-
       amadeus: {
         company: 'Amadeus',
         role: 'Senior Frontend Developer',
@@ -264,6 +251,7 @@ export default {
     close: 'Cerrar',
     open: 'Abrir',
     viewMore: 'Ver más',
-    viewLess: 'Ver menos'
+    viewLess: 'Ver menos',
+    changeLanguage: 'Cambiar idioma'
   }
 };

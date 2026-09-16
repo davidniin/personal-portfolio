@@ -14,19 +14,22 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <button class="md:hidden text-green" @click="toggleMobileMenu">
+        <button class="md:hidden text-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-navy rounded"
+            :aria-label="isMobileMenuOpen ? $t('common.close') : $t('common.open')" :aria-expanded="isMobileMenuOpen"
+            aria-controls="mobile-menu" @click="toggleMobileMenu">
             <Menu v-if="!isMobileMenuOpen" class="w-8 h-8" />
             <X v-else class="w-8 h-8" />
         </button>
     </div>
 
     <!-- Mobile Dropdown -->
-    <div v-show="isMobileMenuOpen"
+    <div id="mobile-menu" v-show="isMobileMenuOpen"
         class="absolute top-20 left-0 w-full bg-lightNavy border-b border-lightestNavy shadow-xl md:hidden">
         <div class="px-6 py-8 flex flex-col space-y-6 text-center font-mono text-lg">
-            <a v-for="link in navLinks" :key="link.href" :href="link.href" class="text-lightSlate hover:text-green"
+            <a v-for="link in navLinks" :key="link.href" :href="link.href"
+                class="text-lightSlate hover:text-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green rounded"
                 @click="closeMobileMenu">
-                {{ link.label }}
+                {{ $t(`nav.${link.labelKey}`) }}
             </a>
         </div>
     </div>

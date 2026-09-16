@@ -44,12 +44,17 @@ const i18n = createI18n({
     fallbackWarn: false
 });
 
+// Keep the <html lang> attribute in sync so screen readers and browsers
+// always know the actual language of the rendered content.
+document.documentElement.lang = i18n.global.locale.value;
+
 /**
  * Save locale to localStorage when changed
  */
 export function setLocale(locale) {
     if (['es', 'en'].includes(locale)) {
         i18n.global.locale.value = locale;
+        document.documentElement.lang = locale;
         localStorage.setItem('locale', locale);
     }
 }
