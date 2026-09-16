@@ -6,7 +6,7 @@
 // ============================================================================
 import { ref, reactive, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { SpeedInsights } from "@vercel/speed-insights/vue";
+import { injectSpeedInsights } from "@vercel/speed-insights";
 import { inject } from '@vercel/analytics';
 
 // Configuration (Infrastructure Layer)
@@ -45,8 +45,7 @@ export default {
     ExperienceSection,
     ProjectsSection,
     ContactSection,
-    ChatWidget,
-    SpeedInsights
+    ChatWidget
   },
   
   props: {},
@@ -90,6 +89,11 @@ export default {
     onMounted(() => {
       // Initialize Vercel Analytics
       inject();
+
+      // Initialize Vercel Speed Insights (framework-agnostic entry point —
+      // the /vue entry requires vue-router, which this single-page site
+      // doesn't use).
+      injectSpeedInsights();
 
       // Scroll animations
       observeElements();
