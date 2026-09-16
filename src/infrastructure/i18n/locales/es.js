@@ -14,6 +14,7 @@ export default {
 
   // Hero Section
   hero: {
+    badge: 'Abierto a nuevos retos',
     greeting: 'Hola, mi nombre es',
     name: 'David Nin Mur',
     title: 'Senior Frontend Developer',
@@ -22,6 +23,7 @@ export default {
     currentlyAt: 'Actualmente escalando productos en',
     cta: {
       projects: 'Ver mis proyectos',
+      chat: 'Pregúntale a NinIA',
       contact: '¡Hablemos!'
     }
   },
@@ -190,20 +192,25 @@ export default {
 
   // Projects Section
   projects: {
-    title: 'Algunos proyectos en los que he trabajado',
-    description: 'Una selección de sitios web que he desarrollado, mostrando diferentes enfoques y tecnologías.',
+    title: 'Proyectos personales',
+    description: 'Fuera de Amadeus, uso mis propios proyectos para explorar dónde encaja la IA de verdad — y dónde no.',
+    quote: 'La IA puede escribir código, pero el ingeniero diseña el sistema.',
+    viewSite: 'Ver sitio',
+    viewRepo: 'Ver repo',
+    aiTag: 'IA',
+    noAiTag: 'Sin IA',
     items: {
-      essentials: {
-        title: 'Vertex Essentials',
-        description: 'Velocidad Pura & Mobile-First Arquitectura web ultra-ligera diseñada para carga instantánea (<0.5s). Prioridad absoluta al rendimiento móvil y Core Web Vitals perfectos para máxima retención.'
+      ownChatIa: {
+        title: 'own-chat-ia',
+        description: 'Un LLM corriendo íntegramente en el navegador, sin servidor — construido para entender de primera mano los límites reales de la IA en el cliente.'
       },
-      professional: {
-        title: 'Vertex Professional',
-        description: 'Identidad Corporativa & SEO Infraestructura robusta que equilibra estética premium con SEO técnico estructural. Diseñada para transmitir autoridad de marca y solidez institucional.'
+      makeyourdocu: {
+        title: 'MakeYourDocu',
+        description: 'Un SaaS real: conecta un repo de GitHub y Groq genera Especificaciones Funcionales y Guías de Usuario a partir del código. Freemium, código abierto.'
       },
-      elite: {
-        title: 'Vertex Elite',
-        description: 'Conversión & UX Avanzada PWA de alto rendimiento con micro-interacciones fluidas y funnels de captación. Ingeniería centrada en guiar el comportamiento del usuario hacia la matrícula.'
+      changelogify: {
+        title: 'Changelogify',
+        description: 'El contraste deliberado: convierte commits en changelog sin backend y sin IA — porque aquí la complejidad extra no habría aportado nada.'
       }
     }
   },
@@ -224,7 +231,7 @@ export default {
   // Chat Widget
   chat: {
     title: 'Pregúntame algo',
-    welcome: '¡Hola! 👋 Soy un asistente de IA que conoce todo sobre David. Pregúntame sobre su experiencia, habilidades, proyectos o cualquier otra cosa.',
+    welcome: '¡Hola! 👋 Soy NinIA, un asistente de IA que David construyó él mismo (Vue por delante, una API serverless por detrás). Pregúntame sobre su experiencia, habilidades o proyectos.',
     placeholder: 'Escribe tu mensaje...',
     send: 'Enviar',
     thinking: 'Pensando...',

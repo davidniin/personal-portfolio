@@ -42,34 +42,28 @@ export const JOBS = [
     })
 ];
 
-// Portfolio Projects - Live Websites
+// Portfolio Projects - Personal projects exploring AI and architecture
 export const PROJECTS = [
     new Project({
-        id: 'essentials',
-        title: 'Vertex Essentials',
-        url: 'https://essentials.vertexdigital.es/',
-        image: '/images/projects/essentials-example.jpg',
-        tags: ['Performance', 'Mobile First', 'Landing Page', 'WPO', 'Next.js'],
-        category: 'Web Development',
-        colorClass: 'text-green border-green/30 bg-green/10'
+        id: 'ownChatIa',
+        title: 'own-chat-ia',
+        url: 'https://github.com/davidniin/own-chat-ia',
+        tags: ['WebGPU', 'LLM', 'No backend'],
+        usesAI: true
     }),
     new Project({
-        id: 'professional',
-        title: 'Vertex Professional',
-        url: 'https://pro.vertexdigital.es/',
-        image: '/images/projects/pro-example.jpg',
-        tags: ['Corporate Identity', 'Technical SEO', 'Branding', 'Business', 'Next.js'],
-        category: 'Web Development',
-        colorClass: 'text-green border-green/30 bg-green/10'
+        id: 'makeyourdocu',
+        title: 'MakeYourDocu',
+        url: 'https://make-your-docu-frontend.vercel.app/',
+        tags: ['Groq API', 'GitHub OAuth', 'Freemium'],
+        usesAI: true
     }),
     new Project({
-        id: 'elite',
-        title: 'Vertex Elite',
-        url: 'https://elite.vertexdigital.es/',
-        image: '/images/projects/elite-example.jpg',
-        tags: ['High Conversion', 'Advanced UX', 'Motion Graphics', 'Lead Gen', 'PWA', 'Next.js'],
-        category: 'Web Development',
-        colorClass: 'text-green border-green/30 bg-green/10'
+        id: 'changelogify',
+        title: 'Changelogify',
+        url: 'https://www.changelogify.es/',
+        tags: ['Client-side', 'No backend'],
+        usesAI: false
     })
 ];
 

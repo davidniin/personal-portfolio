@@ -1,17 +1,16 @@
 <template src="./AboutSection.html"></template>
 
 <script>
-import { Cpu, Users, Code2, CheckCircle, Layers } from 'lucide-vue-next';
+import { Cpu, Users, CheckCircle, Layers } from 'lucide-vue-next';
 import SectionHeader from '../../layout/SectionHeader/SectionHeader.vue';
 import BaseAccordion from '../../ui/BaseAccordion/BaseAccordion.vue';
 
 export default {
   name: 'AboutSection',
-  
+
   components: {
     Cpu,
     Users,
-    Code2,
     CheckCircle,
     Layers,
     SectionHeader,

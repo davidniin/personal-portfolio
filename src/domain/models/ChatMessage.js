@@ -22,14 +22,4 @@ export class ChatMessage {
     isAIMessage() {
         return this.sender === 'ai';
     }
-
-    /**
-     * Get formatted timestamp
-     */
-    getFormattedTime() {
-        return this.timestamp.toLocaleTimeString('es-ES', {
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-    }
 }

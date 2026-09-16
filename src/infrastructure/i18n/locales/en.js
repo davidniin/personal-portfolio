@@ -14,6 +14,7 @@ export default {
 
     // Hero Section
     hero: {
+        badge: 'Open to new challenges',
         greeting: 'Hi, my name is',
         name: 'David Nin Mur',
         title: 'Senior Frontend Developer',
@@ -22,6 +23,7 @@ export default {
         currentlyAt: 'Currently scaling products at',
         cta: {
             projects: 'View my projects',
+            chat: 'Ask NinIA',
             contact: 'Let\'s talk!'
         }
     },
@@ -189,20 +191,25 @@ export default {
 
     // Projects Section
     projects: {
-        title: 'Some things I\'ve built',
-        description: 'A selection of websites I\'ve developed, showcasing different approaches and technologies.',
+        title: 'Personal projects',
+        description: 'Outside of Amadeus, I use my own projects to explore where AI actually belongs — and where it doesn\'t.',
+        quote: 'AI may write the code, but the engineer must design the system.',
+        viewSite: 'View site',
+        viewRepo: 'View repo',
+        aiTag: 'AI',
+        noAiTag: 'No AI',
         items: {
-            essentials: {
-                title: 'Vertex Essentials',
-                description: 'Pure Speed & Mobile-First Ultra-lightweight architecture designed for instant load times (<0.5s). Prioritizes absolute mobile performance and perfect Core Web Vitals for maximum user retention.'
+            ownChatIa: {
+                title: 'own-chat-ia',
+                description: 'An LLM running entirely in the browser, no server involved — built to understand the real limits of client-side AI firsthand.'
             },
-            professional: {
-                title: 'Vertex Professional',
-                description: 'Brand Identity & SEO Robust infrastructure that balances premium aesthetics with technical SEO structure. Designed to communicate brand authority and institutional solidity.'
+            makeyourdocu: {
+                title: 'MakeYourDocu',
+                description: 'A real SaaS: connect a GitHub repo and Groq generates Functional Specs and User Guides from the code. Freemium, open source.'
             },
-            elite: {
-                title: 'Vertex Elite',
-                description: 'Conversion & UX Advanced PWA architecture with smooth micro-interactions and enrollment funnels. Behavior-centered engineering to guide user behavior towards enrollment.'
+            changelogify: {
+                title: 'Changelogify',
+                description: 'The deliberate contrast: turns commits into a changelog with zero backend and zero AI — because here, the extra complexity wouldn\'t have added anything.'
             }
         }
     },
@@ -223,7 +230,7 @@ export default {
     // Chat Widget
     chat: {
         title: 'Ask me anything',
-        welcome: 'Hi there! 👋 I\'m an AI assistant who knows all about David. Ask me about his experience, skills, projects, or anything else.',
+        welcome: 'Hi there! 👋 I\'m NinIA — an AI assistant David built himself (Vue on the front, a serverless API on the back). Ask me about his experience, skills, or projects.',
         placeholder: 'Type your message...',
         send: 'Send',
         thinking: 'Thinking...',

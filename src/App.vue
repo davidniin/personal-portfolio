@@ -69,8 +69,6 @@ export default {
 
     // Reactive objects
     const accordionState = reactive({
-      coreTech: false,
-      architecture: false,
       beyondCode: false
     });
 
@@ -80,7 +78,7 @@ export default {
     // Keep the still-untouched welcome bubble in sync if the visitor
     // switches language before ever sending a message.
     watch(locale, () => {
-      if (chatMessages.value.length === 1 && chatMessages.value[0].sender === 'ai') {
+      if (chatMessages.value.length === 1 && chatMessages.value[0].isAIMessage()) {
         chatMessages.value = [ChatService.createWelcomeMessage(t('chat.welcome'))];
       }
     });
@@ -95,9 +93,6 @@ export default {
 
       // Scroll animations
       observeElements();
-
-      // Spotlight effect
-      window.addEventListener('mousemove', handleMouseMove);
     });
 
     /******************************************************
@@ -151,7 +146,7 @@ export default {
         const currentLanguage = locale.value || 'en';
         const aiResponse = await chatClient.generateContent(validation.text, currentLanguage);
 
-        chatMessages.value.push(ChatService.createAIMessage(aiResponse));
+        chatMessages.value.push(await ChatService.createAIMessage(aiResponse));
       } catch (error) {
         const errorKey = error.message === 'connection' ? 'chat.errors.connection' : 'chat.errors.api';
         chatMessages.value.push(ChatService.createErrorMessage(t(errorKey)));
@@ -185,14 +180,6 @@ export default {
       );
 
       document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
-    };
-    
-    const handleMouseMove = (e) => {
-      const spotlight = document.getElementById('spotlight');
-      if (spotlight) {
-        spotlight.style.setProperty('--x', `${e.clientX}px`);
-        spotlight.style.setProperty('--y', `${e.clientY}px`);
-      }
     };
 
     /******************************************************
@@ -249,14 +236,6 @@ export default {
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 .delay-300 { transition-delay: 300ms; }
-
-.spotlight {
-  background: radial-gradient(
-    600px circle at var(--x, 0px) var(--y, 0px), 
-    rgba(100, 255, 218, 0.07), 
-    transparent 80%
-  );
-}
 
 .shadow-neon {
   box-shadow: 0 0 10px rgba(100, 255, 218, 0.1), 

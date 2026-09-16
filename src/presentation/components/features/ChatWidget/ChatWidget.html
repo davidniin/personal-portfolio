@@ -19,10 +19,10 @@
 
             <!-- Messages -->
             <div ref="chatContainer" class="flex-1 overflow-y-auto p-4 space-y-3 text-xs md:text-sm">
-                <div v-for="(msg, i) in chatMessages" :key="i" class="p-3 rounded-lg max-w-[85%] break-words" :class="msg.sender === 'user' 
-            ? 'self-end bg-green/10 text-green border border-green/30 rounded-br-none ml-auto' 
+                <div v-for="(msg, i) in chatMessages" :key="i" class="p-3 rounded-lg max-w-[85%] break-words" :class="msg.isUserMessage()
+            ? 'self-end bg-green/10 text-green border border-green/30 rounded-br-none ml-auto'
             : 'self-start bg-navy border border-lightestNavy text-slate rounded-tl-none mr-auto'">
-                    <div v-if="msg.sender === 'ai'" v-html="msg.text"></div>
+                    <div v-if="msg.isAIMessage()" v-html="msg.text"></div>
                     <div v-else>{{ msg.text }}</div>
                 </div>
 

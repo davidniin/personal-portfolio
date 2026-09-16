@@ -1,6 +1,19 @@
-import { marked } from 'marked';
-import DOMPurify from 'dompurify';
 import { ChatMessage } from '../models/ChatMessage.js';
+
+// marked/dompurify are only needed once an AI response actually arrives,
+// so they're loaded on demand instead of shipping in the initial bundle
+// for every visitor (most never open the chat).
+let sanitizers = null;
+function loadSanitizers() {
+    if (!sanitizers) {
+        sanitizers = Promise.all([import('marked'), import('dompurify')])
+            .then(([markedModule, dompurifyModule]) => ({
+                marked: markedModule.marked,
+                DOMPurify: dompurifyModule.default
+            }));
+    }
+    return sanitizers;
+}
 
 /**
  * ChatService - Domain Service
@@ -32,7 +45,8 @@ export class ChatService {
      * Create AI response message from raw provider text (markdown).
      * Sanitized before being marked safe for v-html rendering.
      */
-    static createAIMessage(rawText) {
+    static async createAIMessage(rawText) {
+        const { marked, DOMPurify } = await loadSanitizers();
         const html = DOMPurify.sanitize(marked.parse(rawText));
         return new ChatMessage({
             text: html,

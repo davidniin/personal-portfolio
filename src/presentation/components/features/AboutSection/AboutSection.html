@@ -15,58 +15,48 @@
         <!-- Text Content - Second on mobile, first on desktop -->
         <div class="md:col-span-2 text-slate leading-7 text-lg order-2 md:order-1">
             <p class="mb-4">
-                {{ $t('about.paragraph1.part1') }} <span class="text-green">{{ $t('about.paragraph1.year') }}</span>{{
+                {{ $t('about.paragraph1.part1') }} <span class="text-white font-semibold">{{ $t('about.paragraph1.year') }}</span>{{
                 $t('about.paragraph1.part2') }}
-                <span class="text-green">Sigma</span>, <span class="text-green">Quantion</span> {{
+                <span class="text-white font-semibold">Sigma</span>, <span class="text-white font-semibold">Quantion</span> {{
                 $t('about.paragraph1.part3') }}
-                <span class="text-green">T2C</span>{{ $t('about.paragraph1.part4') }}
+                <span class="text-white font-semibold">T2C</span>{{ $t('about.paragraph1.part4') }}
                 <span class="text-white font-semibold">Amadeus</span> {{ $t('about.paragraph1.part5') }}
             </p>
             <p class="mb-4">
-                {{ $t('about.paragraph2.part1') }} <span class="text-green">{{ $t('about.paragraph2.teamDynamics')
+                {{ $t('about.paragraph2.part1') }} <span class="text-white font-semibold">{{ $t('about.paragraph2.teamDynamics')
                     }}</span> {{ $t('about.paragraph2.part2') }}
-                <span class="text-green">{{ $t('about.paragraph2.why') }}</span> {{ $t('about.paragraph2.part3') }}
+                <span class="text-white font-semibold">{{ $t('about.paragraph2.why') }}</span> {{ $t('about.paragraph2.part3') }}
             </p>
             <p class="mb-8">
-                {{ $t('about.paragraph3.part1') }} <span class="text-green">{{ $t('about.paragraph3.degree') }}</span>{{
+                {{ $t('about.paragraph3.part1') }} <span class="text-white font-semibold">{{ $t('about.paragraph3.degree') }}</span>{{
                 $t('about.paragraph3.part2') }}
             </p>
 
-            <!-- Accordions -->
+            <!-- Stack - always visible, no click required -->
+            <div class="mb-6">
+                <h3 class="flex items-center gap-2 font-mono text-white font-semibold text-sm mb-3">
+                    <Cpu class="w-4 h-4 text-green" /> {{ $t('about.skills.coreTech.title') }}
+                </h3>
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span v-for="(item, index) in $tm('about.skills.coreTech.items')" :key="`ct-${index}`"
+                        class="font-mono text-xs text-green/90 bg-green/5 border border-green/20 rounded-md px-2.5 py-1">
+                        {{ item }}
+                    </span>
+                </div>
+
+                <h3 class="flex items-center gap-2 font-mono text-white font-semibold text-sm mb-3">
+                    <Layers class="w-4 h-4 text-green" /> {{ $t('about.skills.architecture.title') }}
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                    <span v-for="(item, index) in $tm('about.skills.architecture.items')" :key="`ar-${index}`"
+                        class="font-mono text-xs text-lightSlate bg-lightestNavy/40 border border-lightestNavy rounded-md px-2.5 py-1">
+                        {{ item }}
+                    </span>
+                </div>
+            </div>
+
+            <!-- Beyond Code Accordion -->
             <div class="space-y-4">
-                <!-- Core Tech Accordion -->
-                <BaseAccordion panel-id="accordion-core-tech" :is-open="accordionState.coreTech" @toggle="toggle('coreTech')">
-                    <template #icon>
-                        <Cpu class="w-5 h-5 text-green group-hover:scale-110 transition-transform" />
-                    </template>
-                    <template #title>{{ $t('about.skills.coreTech.title') }}</template>
-                    <template #content>
-                        <ul class="p-4 grid grid-cols-2 gap-3 font-mono text-sm">
-                            <li v-for="(item, index) in $tm('about.skills.coreTech.items')" :key="index"
-                                class="flex items-center">
-                                <Code2 class="w-3 h-3 text-green mr-2" /> {{ item }}
-                            </li>
-                        </ul>
-                    </template>
-                </BaseAccordion>
-
-                <!-- Architecture & Patterns Accordion -->
-                <BaseAccordion panel-id="accordion-architecture" :is-open="accordionState.architecture" @toggle="toggle('architecture')">
-                    <template #icon>
-                        <Layers class="w-5 h-5 text-green group-hover:scale-110 transition-transform" />
-                    </template>
-                    <template #title>{{ $t('about.skills.architecture.title') }}</template>
-                    <template #content>
-                        <ul class="p-4 grid grid-cols-2 gap-3 font-mono text-sm">
-                            <li v-for="(item, index) in $tm('about.skills.architecture.items')" :key="index"
-                                class="flex items-center">
-                                <Code2 class="w-3 h-3 text-green mr-2" /> {{ item }}
-                            </li>
-                        </ul>
-                    </template>
-                </BaseAccordion>
-
-                <!-- Beyond Code Accordion -->
                 <BaseAccordion panel-id="accordion-beyond-code" :is-open="accordionState.beyondCode" @toggle="toggle('beyondCode')">
                     <template #icon>
                         <Users class="w-5 h-5 text-green group-hover:scale-110 transition-transform" />
