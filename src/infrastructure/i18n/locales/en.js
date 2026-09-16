@@ -35,23 +35,23 @@ export default {
         paragraph1: {
             part1: 'My journey began in',
             year: '2017',
-            part2: ', pivoting from systems to software development. Since then, I\'ve had the opportunity to build scalable solutions for',
+            part2: ', pivoting from systems to software development. Since then I built solutions for',
             part3: 'and',
-            part4: ', and now I\'m tackling global-scale challenges at',
+            part4: ', and today I take on global-scale challenges at',
             part5: 'in the travel sector.'
         },
         paragraph2: {
-            part1: 'I don\'t just write code; I care about',
-            teamDynamics: 'team dynamics',
-            part2: 'and the',
-            why: '"Why"',
-            part3: 'behind features. Whether it\'s optimizing a render cycle, mentoring a junior developer, or driving Agile best practices, I aim for excellence.'
-        },
-        paragraph3: {
-            part1: 'Currently pursuing a',
+            part1: 'At Amadeus I helped scale the team from',
+            teamGrowth: '5 to 12 developers',
+            part2: 'and cut production bugs by',
+            bugReduction: '~30%',
+            part3: 'by introducing CI/CD quality gates. I fold',
+            aiTools: 'AI (Claude, ChatGPT)',
+            part4: 'into my daily development and testing workflow, while still studying for a',
             degree: 'Bachelor\'s Degree in Computer Engineering',
-            part2: ', I\'m deeply committed to continuous learning and professional growth, constantly seeking to absorb knowledge from my environment.'
+            part5: '.'
         },
+        githubCta: 'More code and technical notes on GitHub',
         bio: 'Ambitious and proactive, I am deeply committed to continuous learning and professional growth, constantly seeking to absorb knowledge from my environment. Proven mentor, fostering technical growth within teams and driving delivery efficiencies.',
         currentRole: 'I currently work as',
         company: 'Amadeus',
@@ -60,35 +60,7 @@ export default {
         skills: {
             title: 'Technical Skills',
             coreTech: {
-                title: 'Core Technologies',
-                items: [
-                    'JavaScript / TypeScript',
-                    'Vue.js (Ecosystem)',
-                    'Angular',
-                    'React',
-                    'Node.js',
-                    'HTML5 / CSS3'
-                ]
-            },
-            frameworks: {
-                title: 'Frameworks & Tools',
-                items: [
-                    'Vue 3 (Composition API)',
-                    'Angular 14+',
-                    'Vite / Webpack',
-                    'Tailwind CSS',
-                    'SASS/SCSS'
-                ]
-            },
-            testing: {
-                title: 'Testing',
-                items: [
-                    'Jest',
-                    'Vitest',
-                    'Cypress',
-                    'Mocha',
-                    'Jasmine'
-                ]
+                title: 'Core Technologies'
             },
             architecture: {
                 title: 'Architecture & Patterns',
@@ -99,16 +71,6 @@ export default {
                     'Design Patterns',
                     'SOLID Principles',
                     'Code Refactoring'
-                ]
-            },
-            tools: {
-                title: 'Tools & Methodologies',
-                items: [
-                    'Git / GitLab',
-                    'CI/CD',
-                    'Agile / Scrum',
-                    'Code Reviews',
-                    'Technical Mentoring'
                 ]
             },
             beyondCode: {
@@ -210,6 +172,10 @@ export default {
             changelogify: {
                 title: 'Changelogify',
                 description: 'The deliberate contrast: turns commits into a changelog with zero backend and zero AI — because here, the extra complexity wouldn\'t have added anything.'
+            },
+            findJob: {
+                title: 'Smart Job Search',
+                description: 'All your tech job listings, in one place — a job-search aggregator built to cut through scattered listings across sites.'
             }
         }
     },

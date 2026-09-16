@@ -64,6 +64,13 @@ export const PROJECTS = [
         url: 'https://www.changelogify.es/',
         tags: ['Client-side', 'No backend'],
         usesAI: false
+    }),
+    new Project({
+        id: 'findJob',
+        title: 'Smart Job Search',
+        url: 'https://find-job-beryl-gamma.vercel.app/',
+        tags: ['Job aggregation'],
+        usesAI: false
     })
 ];
 
@@ -88,43 +95,12 @@ export const PERSONAL_INFO = {
     education: 'Currently pursuing a Bachelor\'s Degree in Computer Engineering'
 };
 
-// Technical Skills
-export const SKILLS = {
-    coreTech: [
-        'JavaScript / TypeScript',
-        'Vue.js (Ecosystem)',
-        'Angular',
-        'React',
-        'Node.js',
-        'HTML5 / CSS3'
-    ],
-    frameworks: [
-        'Vue 3 (Composition API)',
-        'Angular 14+',
-        'Vite / Webpack',
-        'Tailwind CSS',
-        'SASS/SCSS'
-    ],
-    testing: [
-        'Jest',
-        'Vitest',
-        'Cypress',
-        'Mocha',
-        'Jasmine'
-    ],
-    architecture: [
-        'Microfrontends',
-        'Microservices Integration',
-        'State Management (Pinia, Vuex)',
-        'Design Patterns',
-        'SOLID Principles',
-        'Code Refactoring'
-    ],
-    tools: [
-        'Git / GitLab',
-        'CI/CD',
-        'Agile / Scrum',
-        'Code Reviews',
-        'Technical Mentoring'
-    ]
-};
+// Core tech stack - paired with a brand icon, so not translated (proper nouns)
+export const CORE_TECH_STACK = [
+    { name: 'JavaScript', icon: 'javascript' },
+    { name: 'TypeScript', icon: 'typescript' },
+    { name: 'Vue.js', icon: 'vue' },
+    { name: 'Angular', icon: 'angular' },
+    { name: 'React', icon: 'react' },
+    { name: 'Node.js', icon: 'nodejs' }
+];

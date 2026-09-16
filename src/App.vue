@@ -4,18 +4,19 @@
 // ============================================================================
 // IMPORTS
 // ============================================================================
-import { ref, reactive, onMounted, watch } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { injectSpeedInsights } from "@vercel/speed-insights";
 import { inject } from '@vercel/analytics';
 
 // Configuration (Infrastructure Layer)
-import { 
-  NAV_LINKS, 
-  JOBS, 
-  PROJECTS, 
-  SOCIAL_LINKS, 
-  PERSONAL_INFO 
+import {
+  NAV_LINKS,
+  JOBS,
+  PROJECTS,
+  SOCIAL_LINKS,
+  PERSONAL_INFO,
+  CORE_TECH_STACK
 } from './infrastructure/config/portfolio.config.js';
 
 // Components (Presentation Layer)
@@ -66,11 +67,6 @@ export default {
     const chatContainerRef = ref(null);
     const activeTabId = ref('amadeus');
 
-    // Reactive objects
-    const accordionState = reactive({
-      beyondCode: false
-    });
-
     // Normal variables (non-reactive)
     const chatClient = new ChatClient();
 
@@ -118,10 +114,6 @@ export default {
       }
     };
     
-    const toggleAccordion = (key) => {
-      accordionState[key] = !accordionState[key];
-    };
-
     /******************************************************
      *                VIEW EVENTS                         *
      ******************************************************/
@@ -197,7 +189,8 @@ export default {
       PROJECTS,
       SOCIAL_LINKS,
       PERSONAL_INFO,
-      
+      CORE_TECH_STACK,
+
       // State
       isMobileMenuOpen,
       isChatOpen,
@@ -206,13 +199,11 @@ export default {
       isThinking,
       chatContainerRef,
       activeTabId,
-      accordionState,
-      
+
       // Methods
       toggleMobileMenu,
       closeMobileMenu,
       toggleChat,
-      toggleAccordion,
       navigateToProjects,
       sendMessage
     };

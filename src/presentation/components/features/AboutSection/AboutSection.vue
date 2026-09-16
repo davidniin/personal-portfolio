@@ -1,9 +1,9 @@
 <template src="./AboutSection.html"></template>
 
 <script>
-import { Cpu, Users, CheckCircle, Layers } from 'lucide-vue-next';
+import { Cpu, Users, CheckCircle, Layers, ExternalLink } from 'lucide-vue-next';
 import SectionHeader from '../../layout/SectionHeader/SectionHeader.vue';
-import BaseAccordion from '../../ui/BaseAccordion/BaseAccordion.vue';
+import TechIcon from '../../ui/TechIcon/TechIcon.vue';
 
 export default {
   name: 'AboutSection',
@@ -13,35 +13,20 @@ export default {
     Users,
     CheckCircle,
     Layers,
+    ExternalLink,
     SectionHeader,
-    BaseAccordion
+    TechIcon
   },
-  
+
   props: {
-    accordionState: {
-      type: Object,
+    coreTechStack: {
+      type: Array,
+      required: true
+    },
+    githubUrl: {
+      type: String,
       required: true
     }
-  },
-
-  emits: ['toggle'],
-
-  setup(props, { emit }) {
-    /******************************************************
-     *                VIEW EVENTS                         *
-     ******************************************************/
-    
-    const toggle = (key) => {
-      emit('toggle', key);
-    };
-
-    /******************************************************
-     *                RETURN                              *
-     ******************************************************/
-    
-    return {
-      toggle
-    };
   }
 };
 </script>

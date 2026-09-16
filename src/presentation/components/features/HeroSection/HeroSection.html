@@ -2,6 +2,27 @@
     <div class="hidden md:block absolute inset-y-0 right-0 w-1/3 -z-10 bg-lightNavy/40"
         style="clip-path: polygon(38% 0, 100% 0, 100% 100%, 0% 100%)"></div>
 
+    <!-- Decorative code snippet - fills the right-hand space the asymmetric layout opens up.
+         Fixed to the viewport (like SocialLinks) rather than the capped container, since that's
+         where the actual free margin lives on wide screens. -->
+    <div class="hidden 2xl:block fixed right-10 top-1/2 -translate-y-1/2 w-[280px] z-0 fade-in-up delay-300">
+        <div class="bg-lightNavy border border-lightestNavy rounded-lg shadow-2xl overflow-hidden">
+            <div class="flex items-center gap-1.5 px-4 py-3 border-b border-lightestNavy bg-navy/50">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate/30"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate/30"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-slate/30"></span>
+                <span class="ml-2 font-mono text-[10px] text-slate">david.js</span>
+            </div>
+            <pre class="p-5 font-mono text-xs leading-relaxed"><code><span class="text-lightSlate">const</span> <span class="text-lightestSlate">developer</span> <span class="text-lightSlate">=</span> <span class="text-white">{</span>
+  <span class="text-green">name</span><span class="text-lightSlate">:</span> <span class="text-lightSlate">'David Nin Mur'</span><span class="text-white">,</span>
+  <span class="text-green">role</span><span class="text-lightSlate">:</span> <span class="text-lightSlate">'Senior Frontend Engineer'</span><span class="text-white">,</span>
+  <span class="text-green">stack</span><span class="text-lightSlate">:</span> <span class="text-white">[</span><span class="text-lightSlate">'Vue.js'</span><span class="text-white">,</span> <span class="text-lightSlate">'TypeScript'</span><span class="text-white">]</span><span class="text-white">,</span>
+  <span class="text-green">company</span><span class="text-lightSlate">:</span> <span class="text-lightSlate">'Amadeus'</span><span class="text-white">,</span>
+  <span class="text-green">openToWork</span><span class="text-lightSlate">:</span> <span class="text-green">true</span>
+<span class="text-white">}</span><span class="text-lightSlate">;</span></code></pre>
+        </div>
+    </div>
+
     <div
         class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green/10 text-green font-mono text-xs mb-8 fade-in-up border border-green/20">
         <span class="relative flex h-2 w-2">

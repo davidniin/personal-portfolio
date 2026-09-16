@@ -35,23 +35,23 @@ export default {
     paragraph1: {
       part1: 'Mi viaje comenzó en',
       year: '2017',
-      part2: ', pivotando de sistemas a desarrollo de software. Desde entonces, he tenido la oportunidad de construir soluciones escalables para',
+      part2: ', pivotando de sistemas a desarrollo de software. Desde entonces construí soluciones para',
       part3: 'y',
-      part4: ', y ahora estoy abordando desafíos a escala global en',
+      part4: ', y hoy afronto retos a escala global en',
       part5: 'en el sector de viajes.'
     },
     paragraph2: {
-      part1: 'No solo escribo código; me preocupo por la',
-      teamDynamics: 'dinámica del equipo',
-      part2: 'y el',
-      why: '"Por qué"',
-      part3: 'detrás de las funcionalidades. Ya sea optimizando un ciclo de renderizado, mentorizando a un desarrollador junior o impulsando las mejores prácticas de Agile, busco la excelencia.'
-    },
-    paragraph3: {
-      part1: 'Actualmente cursando un',
+      part1: 'En Amadeus ayudé a escalar el equipo de',
+      teamGrowth: '5 a 12 desarrolladores',
+      part2: 'y reduje los bugs en producción un',
+      bugReduction: '~30%',
+      part3: 'introduciendo quality gates en CI/CD. Integro',
+      aiTools: 'IA (Claude, ChatGPT)',
+      part4: 'en mi flujo diario de desarrollo y testing, mientras sigo formándome con un',
       degree: 'Grado en Ingeniería Informática',
-      part2: ', estoy profundamente comprometido con el aprendizaje continuo y el crecimiento profesional, buscando constantemente absorber conocimiento de mi entorno.'
+      part5: '.'
     },
+    githubCta: 'Más código y notas técnicas en GitHub',
     bio: 'Ambicioso y proactivo, estoy profundamente comprometido con el aprendizaje continuo y el crecimiento profesional, buscando constantemente absorber conocimiento de mi entorno. Mentor comprobado, fomentando el crecimiento técnico dentro de los equipos e impulsando eficiencias en la entrega.',
     currentRole: 'Actualmente trabajo como',
     company: 'Amadeus',
@@ -60,35 +60,7 @@ export default {
     skills: {
       title: 'Habilidades técnicas',
       coreTech: {
-        title: 'Tecnologías Core',
-        items: [
-          'JavaScript / TypeScript',
-          'Vue.js (Ecosistema)',
-          'Angular',
-          'React',
-          'Node.js',
-          'HTML5 / CSS3'
-        ]
-      },
-      frameworks: {
-        title: 'Frameworks & Herramientas',
-        items: [
-          'Vue 3 (Composition API)',
-          'Angular 14+',
-          'Vite / Webpack',
-          'Tailwind CSS',
-          'SASS/SCSS'
-        ]
-      },
-      testing: {
-        title: 'Testing',
-        items: [
-          'Jest',
-          'Vitest',
-          'Cypress',
-          'Mocha',
-          'Jasmine'
-        ]
+        title: 'Tecnologías Core'
       },
       architecture: {
         title: 'Arquitectura & Patrones',
@@ -99,16 +71,6 @@ export default {
           'Patrones de Diseño',
           'Principios SOLID',
           'Refactorización de Código'
-        ]
-      },
-      tools: {
-        title: 'Herramientas & Metodologías',
-        items: [
-          'Git / GitLab',
-          'CI/CD',
-          'Agile / Scrum',
-          'Revisiones de Código',
-          'Mentoría Técnica'
         ]
       },
       beyondCode: {
@@ -211,6 +173,10 @@ export default {
       changelogify: {
         title: 'Changelogify',
         description: 'El contraste deliberado: convierte commits en changelog sin backend y sin IA — porque aquí la complejidad extra no habría aportado nada.'
+      },
+      findJob: {
+        title: 'Smart Job Search',
+        description: 'Todas tus ofertas técnicas, en un solo sitio — un agregador de empleo pensado para acabar con las ofertas dispersas entre webs.'
       }
     }
   },
