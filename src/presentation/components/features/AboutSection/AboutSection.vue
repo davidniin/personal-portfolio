@@ -1,7 +1,7 @@
 <template src="./AboutSection.html"></template>
 
 <script>
-import { Cpu, Users, CheckCircle, Layers, ExternalLink } from 'lucide-vue-next';
+import { Cpu, Layers, ExternalLink } from 'lucide-vue-next';
 import SectionHeader from '../../layout/SectionHeader/SectionHeader.vue';
 import TechIcon from '../../ui/TechIcon/TechIcon.vue';
 
@@ -10,8 +10,6 @@ export default {
 
   components: {
     Cpu,
-    Users,
-    CheckCircle,
     Layers,
     ExternalLink,
     SectionHeader,

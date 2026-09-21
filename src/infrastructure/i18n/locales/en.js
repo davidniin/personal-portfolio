@@ -8,6 +8,7 @@ export default {
     nav: {
         about: 'ABOUT',
         experience: 'EXPERIENCE',
+        howIWork: 'HOW I WORK',
         labs: 'LABS',
         contact: 'CONTACT'
     },
@@ -72,27 +73,6 @@ export default {
                     'SOLID Principles',
                     'Code Refactoring'
                 ]
-            },
-            beyondCode: {
-                title: 'Beyond the Code',
-                items: [
-                    {
-                        title: 'Mentoring & Leadership',
-                        description: 'Training junior developers and interns, conducting code reviews, and fostering collaborative engineering culture.'
-                    },
-                    {
-                        title: 'Agile Collaboration',
-                        description: 'Active in Sprint Planning, Dailies, and Retrospectives to streamline delivery pipelines.'
-                    },
-                    {
-                        title: 'Quality Assurance',
-                        description: 'Implementing comprehensive testing suites and rigorous peer reviews to minimize technical debt.'
-                    },
-                    {
-                        title: 'Continuous Learning',
-                        description: 'Currently pursuing Bachelor\'s Degree in Computer Engineering while staying updated with industry trends.'
-                    }
-                ]
             }
         }
     },
@@ -151,6 +131,34 @@ export default {
         }
     },
 
+    // How I Work Section
+    howIWork: {
+        title: 'How I work',
+        description: 'Six years in, this is the toolkit and the habits I default to — not slogans, just what actually holds up across teams and codebases.',
+        items: {
+            architecture: {
+                title: 'Architecture & ownership',
+                description: 'I own frontend architecture decisions end to end — technology selection, state management strategy, migration approach and coding standards — most recently across Vue-based microfrontends for enterprise travel applications at Amadeus.'
+            },
+            migrations: {
+                title: 'Migrations without breaking things',
+                description: 'Staged framework migrations, not rewrites: Vue 2 to 3 with the Composition API at Amadeus, and Angular 5 to 8 at Quantion, coordinating developers through the transition instead of freezing feature work.'
+            },
+            quality: {
+                title: 'Quality gates, not just tests',
+                description: 'Jest, Cypress, Mocha and Jasmine paired with CI/CD quality gates I introduced at Amadeus — production bugs and QA-detected issues down by ~30%.'
+            },
+            mentoring: {
+                title: 'Mentoring & team growth',
+                description: 'Day-to-day guidance, onboarding and code reviews for junior developers and interns — more than half were later hired, as the Amadeus team scaled from 5 to 12 developers.'
+            },
+            ai: {
+                title: 'AI as a workflow, not a gimmick',
+                description: 'Claude and ChatGPT are part of my daily loop for development, debugging, testing and technical research — a tool I direct, the same way I would a linter or a debugger.'
+            }
+        }
+    },
+
     // Projects Section
     projects: {
         title: 'Personal projects',
@@ -160,14 +168,15 @@ export default {
         viewRepo: 'View repo',
         aiTag: 'AI',
         noAiTag: 'No AI',
+        featuredTag: 'Featured',
         items: {
             ownChatIa: {
                 title: 'own-chat-ia',
-                description: 'An LLM running entirely in the browser, no server involved — built to understand the real limits of client-side AI firsthand.'
+                description: 'An LLM running entirely in the browser via WebGPU, no server involved — built to understand the real limits of client-side inference firsthand: model loading, memory pressure, and how far a UI can be pushed before the hardware pushes back.'
             },
             makeyourdocu: {
                 title: 'MakeYourDocu',
-                description: 'A real SaaS: connect a GitHub repo and Groq generates Functional Specs and User Guides from the code. Freemium, open source.'
+                description: 'A real SaaS, built end to end: sign in with GitHub OAuth, connect a repo, and Groq generates Functional Specs and User Guides straight from the code. Freemium, open source.'
             },
             changelogify: {
                 title: 'Changelogify',
@@ -175,7 +184,7 @@ export default {
             },
             findJob: {
                 title: 'Smart Job Search',
-                description: 'All your tech job listings, in one place — a job-search aggregator built to cut through scattered listings across sites.'
+                description: 'All your tech job listings, in one place — an AI-powered aggregator that cuts through scattered listings across sites.'
             }
         }
     },
@@ -186,6 +195,7 @@ export default {
         subtitle: 'Get in touch',
         description: 'I\'m currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, I\'ll do my best to get back to you!',
         cta: 'Let\'s talk!',
+        downloadCta: 'Download CV',
         info: {
             email: 'Email',
             phone: 'Phone',

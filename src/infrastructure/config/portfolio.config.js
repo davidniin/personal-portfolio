@@ -10,8 +10,9 @@ import { Project } from '../../domain/models/Project.js';
 export const NAV_LINKS = [
     { href: '#about', label: 'ABOUT', labelKey: 'about', number: '01.' },
     { href: '#experience', label: 'EXPERIENCE', labelKey: 'experience', number: '02.' },
-    { href: '#projects', label: 'LABS', labelKey: 'labs', number: '03.' },
-    { href: '#contact', label: 'CONTACT', labelKey: 'contact', number: '04.' },
+    { href: '#how-i-work', label: 'HOW I WORK', labelKey: 'howIWork', number: '03.' },
+    { href: '#projects', label: 'LABS', labelKey: 'labs', number: '04.' },
+    { href: '#contact', label: 'CONTACT', labelKey: 'contact', number: '05.' },
 ];
 
 // Professional Experience
@@ -49,13 +50,22 @@ export const PROJECTS = [
         title: 'own-chat-ia',
         url: 'https://github.com/davidniin/own-chat-ia',
         tags: ['WebGPU', 'LLM', 'No backend'],
-        usesAI: true
+        usesAI: true,
+        featured: true
     }),
     new Project({
         id: 'makeyourdocu',
         title: 'MakeYourDocu',
         url: 'https://make-your-docu-frontend.vercel.app/',
         tags: ['Groq API', 'GitHub OAuth', 'Freemium'],
+        usesAI: true,
+        featured: true
+    }),
+    new Project({
+        id: 'findJob',
+        title: 'Smart Job Search',
+        url: 'https://find-job-beryl-gamma.vercel.app/',
+        tags: ['AI matching', 'Job aggregation'],
         usesAI: true
     }),
     new Project({
@@ -63,13 +73,6 @@ export const PROJECTS = [
         title: 'Changelogify',
         url: 'https://www.changelogify.es/',
         tags: ['Client-side', 'No backend'],
-        usesAI: false
-    }),
-    new Project({
-        id: 'findJob',
-        title: 'Smart Job Search',
-        url: 'https://find-job-beryl-gamma.vercel.app/',
-        tags: ['Job aggregation'],
         usesAI: false
     })
 ];

@@ -1,34 +1,50 @@
 <div class="bg-navy min-h-screen text-slate selection:bg-green selection:text-navy font-sans overflow-x-hidden">
 
-    <!-- Navigation -->
-    <TheNavbar :nav-links="NAV_LINKS" :is-mobile-menu-open="isMobileMenuOpen" @toggle-mobile-menu="toggleMobileMenu"
-        @close-mobile-menu="closeMobileMenu" />
+    <!-- Ambient background: must stay a direct, unwrapped child here so its
+         `fixed` positioning escapes to the viewport — an ancestor with
+         transform/filter/will-change/contain would trap it into a local
+         stacking context instead. -->
+    <AmbientBackground v-if="showAmbientBackground" />
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-6 md:px-24 lg:px-32 xl:px-40">
+    <AppLayout>
+        <template #sidebar>
+            <AppSidebar :personal-info="PERSONAL_INFO" :nav-links="NAV_LINKS" :social-links="SOCIAL_LINKS"
+                :active-section-id="activeSectionId" />
+        </template>
 
-        <!-- Hero Section -->
-        <HeroSection :personal-info="PERSONAL_INFO" @navigate-projects="navigateToProjects" @toggle-chat="toggleChat" />
+        <template #topbar>
+            <TheNavbar :nav-links="NAV_LINKS" :social-links="SOCIAL_LINKS" :is-mobile-menu-open="isMobileMenuOpen"
+                :active-section-id="activeSectionId" @toggle-mobile-menu="toggleMobileMenu"
+                @close-mobile-menu="closeMobileMenu" />
+        </template>
 
-        <!-- About Section -->
-        <AboutSection :core-tech-stack="CORE_TECH_STACK" :github-url="SOCIAL_LINKS.github" />
+        <template #content>
+            <main class="px-6 md:px-12 lg:px-16 xl:px-20">
+                <!-- Intro -->
+                <IntroSection :personal-info="PERSONAL_INFO" @navigate-projects="navigateToProjects"
+                    @toggle-chat="toggleChat" />
 
-        <!-- Experience Section -->
-        <ExperienceSection :jobs="JOBS" :active-tab-id="activeTabId" @update:active-tab-id="activeTabId = $event" />
+                <!-- About Section -->
+                <AboutSection :core-tech-stack="CORE_TECH_STACK" :github-url="SOCIAL_LINKS.github" />
 
-        <!-- Projects Section -->
-        <ProjectsSection :projects="PROJECTS" />
+                <!-- Experience Section -->
+                <ExperienceSection :jobs="JOBS" :active-tab-id="activeTabId"
+                    @update:active-tab-id="activeTabId = $event" />
 
-        <!-- Contact Section -->
-        <ContactSection :email="SOCIAL_LINKS.email" />
+                <!-- How I Work Section -->
+                <HowIWorkSection />
 
-    </main>
+                <!-- Projects Section -->
+                <ProjectsSection :projects="PROJECTS" />
 
-    <!-- Footer -->
-    <TheFooter />
+                <!-- Contact Section -->
+                <ContactSection :email="SOCIAL_LINKS.email" />
+            </main>
 
-    <!-- Social Links (Fixed Sidebars) -->
-    <SocialLinks :social-links="SOCIAL_LINKS" />
+            <!-- Footer -->
+            <TheFooter />
+        </template>
+    </AppLayout>
 
     <!-- Chat Widget -->
     <ChatWidget ref="chatContainerRef" :is-chat-open="isChatOpen" :chat-messages="chatMessages" :user-input="userInput"

@@ -1,20 +1,11 @@
-<nav id="navbar"
-    class="fixed w-full z-50 bg-navy/90 backdrop-blur-sm transition-all duration-300 h-20 flex items-center border-b border-white/5">
-    <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+<nav id="navbar" class="md:hidden fixed w-full z-50 bg-navy/90 backdrop-blur-sm transition-all duration-300 h-20 flex items-center border-b border-white/5">
+    <div class="container mx-auto px-6 flex justify-between items-center">
         <a href="#" class="text-green font-mono text-xl font-bold group flex items-center gap-2">
             <span class="text-green">&lt;</span>DN<span class="text-green">/&gt;</span>
         </a>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex space-x-8 items-center font-mono text-xs tracking-widest text-lightSlate">
-            <a v-for="link in navLinks" :key="link.href" :href="link.href" class="hover:text-green transition-colors">
-                <span class="text-green">{{ link.number }}</span> {{ $t(`nav.${link.labelKey}`) }}
-            </a>
-            <LanguageSwitcher />
-        </div>
-
         <!-- Mobile Menu Button -->
-        <button class="md:hidden text-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-navy rounded"
+        <button class="text-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green focus-visible:ring-offset-2 focus-visible:ring-offset-navy rounded"
             :aria-label="isMobileMenuOpen ? $t('common.close') : $t('common.open')" :aria-expanded="isMobileMenuOpen"
             aria-controls="mobile-menu" @click="toggleMobileMenu">
             <Menu v-if="!isMobileMenuOpen" class="w-8 h-8" />
@@ -24,13 +15,30 @@
 
     <!-- Mobile Dropdown -->
     <div id="mobile-menu" v-show="isMobileMenuOpen"
-        class="absolute top-20 left-0 w-full bg-lightNavy border-b border-lightestNavy shadow-xl md:hidden">
-        <div class="px-6 py-8 flex flex-col space-y-6 text-center font-mono text-lg">
-            <a v-for="link in navLinks" :key="link.href" :href="link.href"
-                class="text-lightSlate hover:text-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green rounded"
-                @click="closeMobileMenu">
+        class="absolute top-20 left-0 w-full bg-lightNavy border-b border-lightestNavy shadow-xl">
+        <div class="px-6 py-8 flex flex-col items-center space-y-6 text-center font-mono text-lg">
+            <a v-for="link in navLinks" :key="link.href" :href="link.href" @click.prevent="handleNavClick(link.href)"
+                :class="link.href === `#${activeSectionId}` ? 'text-green' : 'text-lightSlate'"
+                class="hover:text-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green rounded">
                 {{ $t(`nav.${link.labelKey}`) }}
             </a>
+
+            <LanguageSwitcher />
+
+            <div class="flex items-center gap-6 pt-4 border-t border-lightestNavy w-full justify-center">
+                <a :href="socialLinks.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                    class="text-lightSlate hover:text-green transition-colors">
+                    <Github class="w-5 h-5" />
+                </a>
+                <a :href="socialLinks.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+                    class="text-lightSlate hover:text-green transition-colors">
+                    <Linkedin class="w-5 h-5" />
+                </a>
+                <a :href="`mailto:${socialLinks.email}`" aria-label="Email"
+                    class="text-lightSlate hover:text-green transition-colors">
+                    <Mail class="w-5 h-5" />
+                </a>
+            </div>
         </div>
     </div>
 </nav>

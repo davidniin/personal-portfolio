@@ -1,5 +1,5 @@
 <section id="projects" class="py-24 fade-in-up">
-    <SectionHeader number="03.">{{ $t('projects.title') }}</SectionHeader>
+    <SectionHeader number="04.">{{ $t('projects.title') }}</SectionHeader>
 
     <p class="text-slate max-w-2xl mb-4 leading-relaxed">
         {{ $t('projects.description') }}
@@ -10,18 +10,21 @@
 
     <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         <a v-for="project in projects" :key="project.id" :href="project.url" target="_blank" rel="noopener noreferrer"
+            :class="project.featured ? 'md:col-span-2 border-green/20' : ''"
             class="group flex flex-col bg-lightNavy/50 border border-lightestNavy/50 rounded-xl p-6 hover:border-green/50 transition-colors">
 
             <span class="inline-flex self-start items-center font-mono text-[10px] uppercase tracking-wide px-2.5 py-1 rounded-full mb-4"
                 :class="project.usesAI ? 'text-green bg-green/10 border border-green/30' : 'text-lightSlate bg-lightestNavy/60 border border-lightestNavy'">
                 {{ project.usesAI ? $t('projects.aiTag') : $t('projects.noAiTag') }}
+                <span v-if="project.featured" class="ml-2 text-lightSlate/70 normal-case">· {{ $t('projects.featuredTag') }}</span>
             </span>
 
-            <h3 class="text-white font-bold text-xl mb-3 group-hover:text-green transition-colors">
+            <h3 class="text-white font-bold group-hover:text-green transition-colors mb-3"
+                :class="project.featured ? 'text-2xl' : 'text-xl'">
                 {{ project.title }}
             </h3>
 
-            <p class="text-slate leading-relaxed mb-6 flex-1">
+            <p class="text-slate leading-relaxed mb-6" :class="project.featured ? 'max-w-2xl' : 'flex-1'">
                 {{ $t(`projects.items.${project.id}.description`) }}
             </p>
 
@@ -33,7 +36,7 @@
             </ul>
 
             <span
-                class="inline-flex items-center gap-1.5 font-mono text-xs text-green group-hover:underline underline-offset-4">
+                class="inline-flex items-center gap-1.5 font-mono text-xs text-green group-hover:underline underline-offset-4 mt-auto">
                 {{ project.url.includes('github.com') ? $t('projects.viewRepo') : $t('projects.viewSite') }}
                 <ExternalLink class="w-3.5 h-3.5" />
             </span>

@@ -1,14 +1,14 @@
 <template src="./LanguageSwitcher.html"></template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed, nextTick, onBeforeUnmount } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { setLocale } from '../../../../infrastructure/i18n/i18n.js';
 import { Globe } from 'lucide-vue-next';
 
 export default {
   name: 'LanguageSwitcher',
-  
+
   components: {
     Globe
   },
@@ -16,28 +16,97 @@ export default {
   setup() {
     const { locale } = useI18n();
     const isOpen = ref(false);
+    const triggerRef = ref(null);
+    const dropdownRef = ref(null);
+    const dropdownStyle = ref({});
 
     const currentLanguage = computed(() => {
       return locale.value.toUpperCase();
     });
 
+    // The dropdown is teleported to <body> so it can never be clipped by a
+    // scrolling ancestor (the sidebar, or the content column). Since that
+    // breaks the CSS position:relative/absolute pairing, position it manually
+    // from the trigger button's own viewport rect instead. The trigger can
+    // sit anywhere (left sidebar, centered mobile menu), so anchor to its
+    // left edge by default, then clamp against both viewport edges once the
+    // dropdown's real width is known.
+    const positionDropdown = () => {
+      if (!triggerRef.value) return;
+      const rect = triggerRef.value.getBoundingClientRect();
+      dropdownStyle.value = {
+        top: `${rect.bottom + 8}px`,
+        left: `${rect.left}px`
+      };
+      triggerRectCache = rect;
+    };
+
+    let triggerRectCache = null;
+
+    const clampDropdownToViewport = () => {
+      if (!dropdownRef.value || !triggerRectCache) return;
+      const margin = 8;
+      const dropdownRect = dropdownRef.value.getBoundingClientRect();
+      let left = dropdownRect.left;
+      let top = dropdownRect.top;
+
+      if (dropdownRect.right > window.innerWidth - margin) {
+        left = window.innerWidth - margin - dropdownRect.width;
+      }
+      if (left < margin) {
+        left = margin;
+      }
+
+      // Flip above the trigger when there isn't room below (e.g. the
+      // trigger sits near the bottom of a short sidebar/viewport).
+      if (dropdownRect.bottom > window.innerHeight - margin) {
+        top = triggerRectCache.top - dropdownRect.height - 8;
+      }
+      if (top < margin) {
+        top = margin;
+      }
+
+      dropdownStyle.value = { top: `${top}px`, left: `${left}px` };
+    };
+
+    // One-shot: any scroll while open (sidebar, content column, or the page
+    // itself) closes the dropdown rather than tracking position live.
+    const handleScroll = () => {
+      closeDropdown();
+    };
+
     const toggleDropdown = () => {
-      isOpen.value = !isOpen.value;
+      if (isOpen.value) {
+        closeDropdown();
+        return;
+      }
+      positionDropdown();
+      isOpen.value = true;
+      nextTick(clampDropdownToViewport);
+      window.addEventListener('scroll', handleScroll, { capture: true, once: true });
     };
 
     const changeLanguage = (lang) => {
       setLocale(lang);
-      isOpen.value = false;
+      closeDropdown();
     };
 
     const closeDropdown = () => {
       isOpen.value = false;
+      window.removeEventListener('scroll', handleScroll, { capture: true });
     };
+
+    onBeforeUnmount(() => {
+      window.removeEventListener('scroll', handleScroll, { capture: true });
+    });
 
     return {
       locale,
       currentLanguage,
       isOpen,
+      triggerRef,
+      dropdownRef,
+      dropdownStyle,
       toggleDropdown,
       changeLanguage,
       closeDropdown
@@ -77,9 +146,7 @@ export default {
 }
 
 .language-dropdown {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
+  position: fixed;
   min-width: 120px;
   background: var(--navy-light);
   border: 1px solid rgba(100, 255, 218, 0.2);

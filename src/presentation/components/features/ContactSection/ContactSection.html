@@ -1,10 +1,16 @@
 <section id="contact" class="py-24 max-w-2xl mx-auto text-center fade-in-up">
-    <span class="font-mono text-green mb-4 block">04. {{ $t('contact.title') }}</span>
+    <span class="font-mono text-green mb-4 block">05. {{ $t('contact.title') }}</span>
     <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">{{ $t('contact.subtitle') }}</h2>
     <p class="text-slate text-lg leading-relaxed mb-12">
         {{ $t('contact.description') }}
     </p>
-    <BaseButton variant="secondary" @click="sendEmail">
-        {{ $t('contact.cta') }}
-    </BaseButton>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+        <BaseButton variant="secondary" @click="sendEmail">
+            {{ $t('contact.cta') }}
+        </BaseButton>
+        <a href="/CV-DavidNin.pdf" download
+            class="font-mono rounded transition-all inline-flex items-center justify-center gap-2 px-8 py-4 text-sm text-lightSlate border border-lightestNavy hover:border-green hover:text-green">
+            <Download class="w-4 h-4" /> {{ $t('contact.downloadCta') }}
+        </a>
+    </div>
 </section>

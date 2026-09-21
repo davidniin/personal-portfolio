@@ -1,0 +1,36 @@
+<div
+    class="hidden md:flex md:flex-col md:fixed md:inset-y-0 md:left-0 md:w-80 md:overflow-y-auto bg-navy border-r border-lightestNavy px-8 py-12 z-40">
+    <a href="#" class="text-green font-mono text-xl font-bold flex items-center gap-2 mb-10 w-fit">
+        <span class="text-green">&lt;</span>DN<span class="text-green">/&gt;</span>
+    </a>
+
+    <p class="text-white font-bold text-2xl leading-tight mb-1">{{ personalInfo.name }}</p>
+    <p class="text-slate font-mono text-sm mb-10">{{ personalInfo.title }}</p>
+
+    <nav class="flex flex-col gap-4 font-mono text-xs tracking-widest text-lightSlate mb-auto">
+        <a v-for="link in navLinks" :key="link.href" :href="link.href" @click.prevent="scrollToSection(link.href)"
+            :class="link.href === `#${activeSectionId}` ? 'text-green' : ''"
+            class="w-fit hover:text-green transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green rounded">
+            <span class="text-green">{{ link.number }}</span> {{ $t(`nav.${link.labelKey}`) }}
+        </a>
+    </nav>
+
+    <div class="flex items-center gap-4 pt-8 mt-8 border-t border-lightestNavy">
+        <a :href="socialLinks.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+            class="text-lightSlate hover:text-green transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green rounded">
+            <Github class="w-5 h-5" />
+        </a>
+        <a :href="socialLinks.linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+            class="text-lightSlate hover:text-green transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green rounded">
+            <Linkedin class="w-5 h-5" />
+        </a>
+        <a :href="`mailto:${socialLinks.email}`" aria-label="Email"
+            class="text-lightSlate hover:text-green transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green rounded">
+            <Mail class="w-5 h-5" />
+        </a>
+    </div>
+
+    <div class="mt-4">
+        <LanguageSwitcher />
+    </div>
+</div>

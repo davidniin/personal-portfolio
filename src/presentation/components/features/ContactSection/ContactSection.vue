@@ -1,13 +1,15 @@
 <template src="./ContactSection.html"></template>
 
 <script>
+import { Download } from 'lucide-vue-next';
 import BaseButton from '../../ui/BaseButton/BaseButton.vue';
 
 export default {
   name: 'ContactSection',
-  
+
   components: {
-    BaseButton
+    BaseButton,
+    Download
   },
   
   props: {

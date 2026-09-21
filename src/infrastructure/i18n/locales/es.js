@@ -8,6 +8,7 @@ export default {
   nav: {
     about: 'SOBRE MI',
     experience: 'EXPERIENCIA',
+    howIWork: 'CÓMO TRABAJO',
     labs: 'LABS',
     contact: 'CONTACTO'
   },
@@ -72,27 +73,6 @@ export default {
           'Principios SOLID',
           'Refactorización de Código'
         ]
-      },
-      beyondCode: {
-        title: 'Más allá del Código',
-        items: [
-          {
-            title: 'Mentoría & Liderazgo',
-            description: 'Formación de desarrolladores junior e internos, realización de revisiones de código y fomento de una cultura de ingeniería colaborativa.'
-          },
-          {
-            title: 'Colaboración Agile',
-            description: 'Participación activa en Sprint Planning, Dailies y Retrospectivas para optimizar los pipelines de entrega.'
-          },
-          {
-            title: 'Aseguramiento de Calidad',
-            description: 'Implementación de suites de testing completas y revisiones rigurosas entre pares para minimizar la deuda técnica.'
-          },
-          {
-            title: 'Aprendizaje Continuo',
-            description: 'Actualmente cursando Grado en Ingeniería Informática mientras me mantengo actualizado con las tendencias de la industria.'
-          }
-        ]
       }
     }
   },
@@ -152,6 +132,34 @@ export default {
 
   },
 
+  // How I Work Section
+  howIWork: {
+    title: 'Cómo trabajo',
+    description: 'Seis años después, este es el conjunto de herramientas y hábitos al que recurro por defecto — no eslóganes, sino lo que realmente funciona en equipos y bases de código reales.',
+    items: {
+      architecture: {
+        title: 'Arquitectura & propiedad técnica',
+        description: 'Poseo las decisiones de arquitectura frontend de principio a fin — selección de tecnología, estrategia de gestión de estado, enfoque de migración y estándares de código — actualmente en microfrontends basados en Vue para aplicaciones del sector travel en Amadeus.'
+      },
+      migrations: {
+        title: 'Migraciones sin romper nada',
+        description: 'Migraciones de framework por etapas, no reescrituras: de Vue 2 a 3 con la Composition API en Amadeus, y de Angular 5 a 8 en Quantion, coordinando al equipo durante la transición sin congelar el desarrollo de funcionalidades.'
+      },
+      quality: {
+        title: 'Quality gates, no solo tests',
+        description: 'Jest, Cypress, Mocha y Jasmine combinados con quality gates de CI/CD que introduje en Amadeus — bugs en producción e incidencias detectadas en QA un ~30% menores.'
+      },
+      mentoring: {
+        title: 'Mentoría & crecimiento del equipo',
+        description: 'Acompañamiento diario, onboarding y revisiones de código para desarrolladores junior e internos — más de la mitad acabaron contratados, mientras el equipo de Amadeus escalaba de 5 a 12 desarrolladores.'
+      },
+      ai: {
+        title: 'IA como flujo de trabajo, no como truco',
+        description: 'Claude y ChatGPT forman parte de mi flujo diario de desarrollo, debugging, testing e investigación técnica — una herramienta que dirijo, igual que un linter o un depurador.'
+      }
+    }
+  },
+
   // Projects Section
   projects: {
     title: 'Proyectos personales',
@@ -161,14 +169,15 @@ export default {
     viewRepo: 'Ver repo',
     aiTag: 'IA',
     noAiTag: 'Sin IA',
+    featuredTag: 'Destacado',
     items: {
       ownChatIa: {
         title: 'own-chat-ia',
-        description: 'Un LLM corriendo íntegramente en el navegador, sin servidor — construido para entender de primera mano los límites reales de la IA en el cliente.'
+        description: 'Un LLM corriendo íntegramente en el navegador vía WebGPU, sin servidor — construido para entender de primera mano los límites reales de la inferencia en el cliente: carga del modelo, presión de memoria y hasta dónde aguanta la interfaz antes de que el hardware diga basta.'
       },
       makeyourdocu: {
         title: 'MakeYourDocu',
-        description: 'Un SaaS real: conecta un repo de GitHub y Groq genera Especificaciones Funcionales y Guías de Usuario a partir del código. Freemium, código abierto.'
+        description: 'Un SaaS real, construido de principio a fin: inicio de sesión con GitHub OAuth, conecta un repo y Groq genera Especificaciones Funcionales y Guías de Usuario directamente a partir del código. Freemium, código abierto.'
       },
       changelogify: {
         title: 'Changelogify',
@@ -176,7 +185,7 @@ export default {
       },
       findJob: {
         title: 'Smart Job Search',
-        description: 'Todas tus ofertas técnicas, en un solo sitio — un agregador de empleo pensado para acabar con las ofertas dispersas entre webs.'
+        description: 'Todas tus ofertas técnicas, en un solo sitio — un agregador con IA pensado para acabar con las ofertas dispersas entre webs.'
       }
     }
   },
@@ -187,6 +196,7 @@ export default {
     subtitle: 'Ponte en contacto',
     description: 'Actualmente estoy abierto a nuevas oportunidades y colaboraciones. Ya sea que tengas una pregunta o simplemente quieras saludar, ¡haré mi mejor esfuerzo para responderte!',
     cta: '¡Hablemos!',
+    downloadCta: 'Descargar CV',
     info: {
       email: 'Correo electrónico',
       phone: 'Teléfono',

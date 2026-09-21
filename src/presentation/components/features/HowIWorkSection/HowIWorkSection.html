@@ -1,0 +1,15 @@
+<section id="how-i-work" class="py-24 fade-in-up">
+    <SectionHeader number="03.">{{ $t('howIWork.title') }}</SectionHeader>
+
+    <p class="text-slate max-w-2xl mb-12 leading-relaxed">
+        {{ $t('howIWork.description') }}
+    </p>
+
+    <div class="grid sm:grid-cols-2 gap-6">
+        <BaseCard v-for="pillar in pillars" :key="pillar.id">
+            <component :is="pillar.icon" class="w-6 h-6 text-green mb-4" aria-hidden="true" />
+            <h3 class="text-white font-bold text-lg mb-2">{{ $t(`howIWork.items.${pillar.id}.title`) }}</h3>
+            <p class="text-slate leading-relaxed">{{ $t(`howIWork.items.${pillar.id}.description`) }}</p>
+        </BaseCard>
+    </div>
+</section>

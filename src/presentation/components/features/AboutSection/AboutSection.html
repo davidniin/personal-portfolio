@@ -52,17 +52,6 @@
                     </span>
                 </div>
 
-                <h3 class="flex items-center gap-2 font-mono text-white font-semibold text-sm mb-3">
-                    <Users class="w-4 h-4 text-green" /> {{ $t('about.skills.beyondCode.title') }}
-                </h3>
-                <ul class="space-y-3 text-sm">
-                    <li v-for="(item, index) in $tm('about.skills.beyondCode.items')" :key="index"
-                        class="flex items-start gap-2">
-                        <CheckCircle class="w-4 h-4 text-green mt-1 shrink-0" />
-                        <span><strong class="text-white">{{ item.title }}:</strong> {{ item.description }}</span>
-                    </li>
-                </ul>
-
                 <a :href="githubUrl" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center gap-1.5 font-mono text-xs text-green hover:underline underline-offset-4 mt-6">
                     {{ $t('about.githubCta') }}

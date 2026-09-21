@@ -4,7 +4,7 @@
 // ============================================================================
 // IMPORTS
 // ============================================================================
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, defineAsyncComponent } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { injectSpeedInsights } from "@vercel/speed-insights";
 import { inject } from '@vercel/analytics';
@@ -19,16 +19,27 @@ import {
   CORE_TECH_STACK
 } from './infrastructure/config/portfolio.config.js';
 
+// Composables
+import { useSectionObserver } from './presentation/composables/useSectionObserver.js';
+
 // Components (Presentation Layer)
+import AppLayout from './presentation/components/layout/AppLayout/AppLayout.vue';
+import AppSidebar from './presentation/components/layout/AppSidebar/AppSidebar.vue';
 import TheNavbar from './presentation/components/layout/TheNavbar/TheNavbar.vue';
 import TheFooter from './presentation/components/layout/TheFooter/TheFooter.vue';
-import SocialLinks from './presentation/components/layout/SocialLinks/SocialLinks.vue';
-import HeroSection from './presentation/components/features/HeroSection/HeroSection.vue';
+import IntroSection from './presentation/components/features/IntroSection/IntroSection.vue';
 import AboutSection from './presentation/components/features/AboutSection/AboutSection.vue';
 import ExperienceSection from './presentation/components/features/ExperienceSection/ExperienceSection.vue';
+import HowIWorkSection from './presentation/components/features/HowIWorkSection/HowIWorkSection.vue';
 import ProjectsSection from './presentation/components/features/ProjectsSection/ProjectsSection.vue';
 import ContactSection from './presentation/components/features/ContactSection/ContactSection.vue';
 import ChatWidget from './presentation/components/features/ChatWidget/ChatWidget.vue';
+
+// Lazy-loaded: only requested once App.vue's onMounted confirms WebGL support,
+// motion is allowed, and the viewport is desktop-sized (see shouldEnableAmbientBackground).
+const AmbientBackground = defineAsyncComponent(() =>
+  import('./presentation/components/features/AmbientBackground/AmbientBackground.vue')
+);
 
 // Services
 import { ChatService } from './domain/services/ChatService.js';
@@ -38,15 +49,18 @@ export default {
   name: 'App',
   
   components: {
+    AppLayout,
+    AppSidebar,
     TheNavbar,
     TheFooter,
-    SocialLinks,
-    HeroSection,
+    IntroSection,
     AboutSection,
     ExperienceSection,
+    HowIWorkSection,
     ProjectsSection,
     ContactSection,
-    ChatWidget
+    ChatWidget,
+    AmbientBackground
   },
   
   props: {},
@@ -66,9 +80,16 @@ export default {
     const isThinking = ref(false);
     const chatContainerRef = ref(null);
     const activeTabId = ref('amadeus');
+    const showAmbientBackground = ref(false);
 
     // Normal variables (non-reactive)
     const chatClient = new ChatClient();
+
+    // Section-reveal + active-nav tracking (see composable for the fix to
+    // the "scrolled-past sections never reveal" bug).
+    const { activeSectionId } = useSectionObserver({
+      sectionIds: ['about', 'experience', 'how-i-work', 'projects', 'contact']
+    });
 
     // Keep the still-untouched welcome bubble in sync if the visitor
     // switches language before ever sending a message.
@@ -91,8 +112,17 @@ export default {
       // doesn't use).
       injectSpeedInsights();
 
-      // Scroll animations
-      observeElements();
+      if (shouldEnableAmbientBackground()) {
+        // requestIdleCallback isn't implemented in Safari — fall back to a
+        // short timeout so the 3D chunk still loads after the page is
+        // interactive. A `timeout` is required on the real API too: without
+        // one, idle callbacks have no firm guarantee of running promptly.
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(() => { showAmbientBackground.value = true; }, { timeout: 2000 });
+        } else {
+          setTimeout(() => { showAmbientBackground.value = true; }, 200);
+        }
+      }
     });
 
     /******************************************************
@@ -163,19 +193,19 @@ export default {
      *                HELPER FUNCTIONS                    *
      ******************************************************/
     
-    const observeElements = () => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
+    const shouldEnableAmbientBackground = () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+      // Skips mobile entirely rather than branching the scene for touch —
+      // sidesteps mobile Safari's WebGL memory quirks in one move.
+      if (!window.matchMedia('(min-width: 768px)').matches) return false;
 
-      document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+      try {
+        const probe = document.createElement('canvas');
+        const gl = probe.getContext('webgl2') || probe.getContext('webgl');
+        return !!gl;
+      } catch (error) {
+        return false;
+      }
     };
 
     /******************************************************
@@ -199,6 +229,8 @@ export default {
       isThinking,
       chatContainerRef,
       activeTabId,
+      showAmbientBackground,
+      activeSectionId,
 
       // Methods
       toggleMobileMenu,

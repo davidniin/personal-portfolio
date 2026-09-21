@@ -1,5 +1,6 @@
 <div class="language-switcher">
   <button
+    ref="triggerRef"
     @click="toggleDropdown"
     class="language-button"
     :aria-label="$t('common.changeLanguage')"
@@ -9,22 +10,24 @@
     <span>{{ currentLanguage }}</span>
   </button>
 
-  <Transition name="fade">
-    <div v-if="isOpen" class="language-dropdown">
-      <button 
-        @click="changeLanguage('es')" 
-        class="language-option"
-        :class="{ active: locale === 'es' }"
-      >
-        🇪🇸 Español
-      </button>
-      <button 
-        @click="changeLanguage('en')" 
-        class="language-option"
-        :class="{ active: locale === 'en' }"
-      >
-        🇬🇧 English
-      </button>
-    </div>
-  </Transition>
+  <Teleport to="body">
+    <Transition name="fade">
+      <div v-if="isOpen" ref="dropdownRef" class="language-dropdown" :style="dropdownStyle">
+        <button
+          @click="changeLanguage('es')"
+          class="language-option"
+          :class="{ active: locale === 'es' }"
+        >
+          🇪🇸 Español
+        </button>
+        <button
+          @click="changeLanguage('en')"
+          class="language-option"
+          :class="{ active: locale === 'en' }"
+        >
+          🇬🇧 English
+        </button>
+      </div>
+    </Transition>
+  </Teleport>
 </div>

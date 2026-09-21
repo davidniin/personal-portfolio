@@ -1,15 +1,13 @@
-<template src="./TheNavbar.html"></template>
+<template src="./AppSidebar.html"></template>
 
 <script>
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-vue-next';
+import { Github, Linkedin, Mail } from 'lucide-vue-next';
 import LanguageSwitcher from '../../ui/LanguageSwitcher/LanguageSwitcher.vue';
 
 export default {
-  name: 'TheNavbar',
+  name: 'AppSidebar',
 
   components: {
-    Menu,
-    X,
     Github,
     Linkedin,
     Mail,
@@ -17,6 +15,10 @@ export default {
   },
 
   props: {
+    personalInfo: {
+      type: Object,
+      required: true
+    },
     navLinks: {
       type: Array,
       required: true
@@ -25,34 +27,19 @@ export default {
       type: Object,
       required: true
     },
-    isMobileMenuOpen: {
-      type: Boolean,
-      required: true
-    },
     activeSectionId: {
       type: String,
       default: ''
     }
   },
 
-  emits: ['toggle-mobile-menu', 'close-mobile-menu'],
-
-  setup(props, { emit }) {
+  setup() {
     /******************************************************
      *                VIEW EVENTS                         *
      ******************************************************/
 
-    const toggleMobileMenu = () => {
-      emit('toggle-mobile-menu');
-    };
-
-    const closeMobileMenu = () => {
-      emit('close-mobile-menu');
-    };
-
-    const handleNavClick = (href) => {
+    const scrollToSection = (href) => {
       document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      closeMobileMenu();
     };
 
     /******************************************************
@@ -60,9 +47,7 @@ export default {
      ******************************************************/
 
     return {
-      toggleMobileMenu,
-      closeMobileMenu,
-      handleNavClick
+      scrollToSection
     };
   }
 };
