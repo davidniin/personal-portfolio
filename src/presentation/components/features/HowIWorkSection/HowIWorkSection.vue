@@ -9,11 +9,11 @@ import BaseCard from '../../ui/BaseCard/BaseCard.vue';
 // the copy itself lives in i18n (howIWork.items.<id>.*), matching the
 // projects.items.<id> pattern used by ProjectsSection.
 const PILLARS = [
-  { id: 'architecture', icon: Boxes },
-  { id: 'migrations', icon: GitBranch },
-  { id: 'quality', icon: ShieldCheck },
-  { id: 'mentoring', icon: Users },
-  { id: 'ai', icon: Bot }
+  { id: 'architecture', icon: Boxes, keywords: ['Microfrontends', 'State Management', 'SOLID'] },
+  { id: 'migrations', icon: GitBranch, keywords: ['Vue 2 → 3', 'Composition API', 'Angular 5 → 8'] },
+  { id: 'quality', icon: ShieldCheck, keywords: ['Jest', 'Cypress', 'CI/CD'] },
+  { id: 'mentoring', icon: Users, keywords: ['Onboarding', 'Code Reviews', '5 → 12 devs'] },
+  { id: 'ai', icon: Bot, keywords: ['Claude', 'ChatGPT', 'Prompt Engineering'] }
 ];
 
 export default {

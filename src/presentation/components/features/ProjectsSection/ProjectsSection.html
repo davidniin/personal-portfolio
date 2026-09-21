@@ -13,16 +13,23 @@
             :class="project.featured ? 'md:col-span-2 border-green/20' : ''"
             class="group flex flex-col bg-lightNavy/50 border border-lightestNavy/50 rounded-xl p-6 hover:border-green/50 transition-colors">
 
+            <ProjectVisual :variant="visualVariants[project.id]" class="mb-5" />
+
             <span class="inline-flex self-start items-center font-mono text-[10px] uppercase tracking-wide px-2.5 py-1 rounded-full mb-4"
                 :class="project.usesAI ? 'text-green bg-green/10 border border-green/30' : 'text-lightSlate bg-lightestNavy/60 border border-lightestNavy'">
                 {{ project.usesAI ? $t('projects.aiTag') : $t('projects.noAiTag') }}
                 <span v-if="project.featured" class="ml-2 text-lightSlate/70 normal-case">· {{ $t('projects.featuredTag') }}</span>
             </span>
 
-            <h3 class="text-white font-bold group-hover:text-green transition-colors mb-3"
-                :class="project.featured ? 'text-2xl' : 'text-xl'">
-                {{ project.title }}
-            </h3>
+            <div class="flex items-center gap-2 mb-3">
+                <h3 class="text-white font-bold group-hover:text-green transition-colors"
+                    :class="project.featured ? 'text-2xl' : 'text-xl'">
+                    {{ project.title }}
+                </h3>
+                <span v-if="project.stack.length" class="flex items-center gap-1.5 text-lightSlate/70">
+                    <TechIcon v-for="tech in project.stack" :key="tech" :icon="tech" />
+                </span>
+            </div>
 
             <p class="text-slate leading-relaxed mb-6" :class="project.featured ? 'max-w-2xl' : 'flex-1'">
                 {{ $t(`projects.items.${project.id}.description`) }}

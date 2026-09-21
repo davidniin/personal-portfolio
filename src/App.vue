@@ -15,8 +15,7 @@ import {
   JOBS,
   PROJECTS,
   SOCIAL_LINKS,
-  PERSONAL_INFO,
-  CORE_TECH_STACK
+  PERSONAL_INFO
 } from './infrastructure/config/portfolio.config.js';
 
 // Composables
@@ -219,7 +218,6 @@ export default {
       PROJECTS,
       SOCIAL_LINKS,
       PERSONAL_INFO,
-      CORE_TECH_STACK,
 
       // State
       isMobileMenuOpen,

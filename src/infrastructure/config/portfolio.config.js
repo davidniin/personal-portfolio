@@ -39,20 +39,12 @@ export const JOBS = [
         id: 'sigma',
         company: 'Sigma',
         role: 'Java Developer',
-        dates: 'Oct 2018 - Sep 2019 | Sabadell'
+        dates: 'Oct 2018 - May 2019 | Sabadell'
     })
 ];
 
 // Portfolio Projects - Personal projects exploring AI and architecture
 export const PROJECTS = [
-    new Project({
-        id: 'ownChatIa',
-        title: 'own-chat-ia',
-        url: 'https://github.com/davidniin/own-chat-ia',
-        tags: ['WebGPU', 'LLM', 'No backend'],
-        usesAI: true,
-        featured: true
-    }),
     new Project({
         id: 'makeyourdocu',
         title: 'MakeYourDocu',
@@ -66,7 +58,8 @@ export const PROJECTS = [
         title: 'Smart Job Search',
         url: 'https://find-job-beryl-gamma.vercel.app/',
         tags: ['AI matching', 'Job aggregation'],
-        usesAI: true
+        usesAI: true,
+        featured: true
     }),
     new Project({
         id: 'changelogify',
@@ -74,6 +67,15 @@ export const PROJECTS = [
         url: 'https://www.changelogify.es/',
         tags: ['Client-side', 'No backend'],
         usesAI: false
+    }),
+    new Project({
+        id: 'ownChatIa',
+        title: 'own-chat-ia',
+        url: 'https://github.com/davidniin/own-chat-ia',
+        tags: ['WebGPU', 'LLM', 'No backend'],
+        usesAI: true,
+        // Confirmed against the repo: vanilla JS, no framework.
+        stack: ['javascript']
     })
 ];
 
@@ -97,13 +99,3 @@ export const PERSONAL_INFO = {
     bio: 'Ambitious and proactive, I am deeply committed to continuous learning and professional growth, constantly seeking to absorb knowledge from my environment. Proven mentor, fostering technical growth within teams and driving delivery efficiencies.',
     education: 'Currently pursuing a Bachelor\'s Degree in Computer Engineering'
 };
-
-// Core tech stack - paired with a brand icon, so not translated (proper nouns)
-export const CORE_TECH_STACK = [
-    { name: 'JavaScript', icon: 'javascript' },
-    { name: 'TypeScript', icon: 'typescript' },
-    { name: 'Vue.js', icon: 'vue' },
-    { name: 'Angular', icon: 'angular' },
-    { name: 'React', icon: 'react' },
-    { name: 'Node.js', icon: 'nodejs' }
-];

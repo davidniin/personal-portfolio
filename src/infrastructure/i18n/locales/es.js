@@ -59,20 +59,21 @@ export default {
     location: 'en Barcelona, España',
     education: 'Actualmente cursando un Grado en Ingeniería Informática',
     skills: {
-      title: 'Habilidades técnicas',
-      coreTech: {
-        title: 'Tecnologías Core'
-      },
-      architecture: {
-        title: 'Arquitectura & Patrones',
-        items: [
-          'Microfrontends',
-          'Integración de Microservicios',
-          'Gestión de Estado (Pinia, Vuex)',
-          'Patrones de Diseño',
-          'Principios SOLID',
-          'Refactorización de Código'
-        ]
+      title: 'Habilidades & stack',
+      subtitle: 'Agrupadas según cuánta experiencia real respalda cada una — no una pared de logos.',
+      tiers: {
+        core: {
+          label: 'Stack principal',
+          caption: 'Seis años de uso diario'
+        },
+        comfortable: {
+          label: 'También he trabajado con',
+          caption: 'Experiencia real en producción, aunque no es mi foco principal'
+        },
+        exploring: {
+          label: 'Explorando ahora',
+          caption: 'Donde quiero profundizar'
+        }
       }
     }
   },
@@ -86,11 +87,11 @@ export default {
         role: 'Senior Frontend Developer',
         dates: 'Mayo 2023 - Presente | Barcelona',
         bullets: [
-          'Diseño e implemento arquitecturas frontend escalables y resilientes utilizando Vue.js para aplicaciones críticas del sector travel con altos volúmenes de tráfico.',
-          'Garantizo altos estándares de calidad mediante testing automatizado (Jest, Cypress), revisiones de código exhaustivas y control activo de la deuda técnica.',
-          'Contribuyo activamente a la mejora de los procesos Agile del equipo, optimizando la planificación, los pipelines de entrega y la estabilidad de los releases.',
-          'Colaboro estrechamente con diseño, producto y backend para asegurar soluciones coherentes, mantenibles y alineadas con objetivos de negocio.',
-          'Mentorizo desarrolladores junior y nuevos miembros del equipo, acelerando su onboarding técnico y promoviendo buenas prácticas de ingeniería.'
+          'Diseño e implemento arquitecturas de microfrontends basadas en Vue.js para aplicaciones del sector travel desplegadas en múltiples clientes.',
+          'Poseo las decisiones de arquitectura frontend — selección de tecnología, estrategia de gestión de estado y estándares de código.',
+          'Refuerzo los pipelines de CI/CD e introduje quality gates, reduciendo bugs en producción e incidencias detectadas en QA un ~30%.',
+          'Mejoro el rendimiento de la aplicación mediante lazy loading y optimización de la obtención de datos, reduciendo tiempos de carga inicial y dependencias en cascada de la API.',
+          'Mentorizo desarrolladores junior e internos con acompañamiento diario, onboarding y revisiones de código — más de la mitad acabaron contratados.'
         ]
       },
 
@@ -99,11 +100,11 @@ export default {
         role: 'Front Web Developer',
         dates: 'Nov 2020 - Mayo 2023 | Barcelona',
         bullets: [
-          'Desarrollé una aplicación web orientada a cliente final desde cero utilizando Vue.js, siguiendo metodologías Agile y flujos de trabajo colaborativos en GitLab.',
-          'Lideré la migración técnica de Vue 2 a Vue 3, mejorando la mantenibilidad del código y alineándolo con estándares modernos del ecosistema frontend.',
+          'Construí una plataforma logística desde cero con Vue.js, responsable de todo el ciclo de vida frontend, desde la arquitectura hasta producción, en un equipo de cuatro desarrolladores.',
+          'Entregué funcionalidades de monitorización en tiempo real para producción, inventario de almacén y estado de rutas de envío.',
           'Integré el frontend con una arquitectura basada en microservicios mediante APIs REST y gestioné estados complejos con Vuex.',
           'Construí interfaces de usuario modulares, responsivas y escalables utilizando SCSS y Tailwind CSS.',
-          'Apoyé el crecimiento del equipo junior mediante definición de tareas técnicas, acompañamiento y revisiones de código orientadas a calidad y aprendizaje.'
+          'Mentoricé a internos mediante onboarding, acompañamiento técnico, asignación de tareas y revisiones de código.'
         ]
       },
 
@@ -112,20 +113,20 @@ export default {
         role: 'Full Stack Developer',
         dates: 'Jun 2019 - Jul 2020 | Barcelona',
         bullets: [
-          'Participé en la modernización de aplicaciones legacy migrando proyectos de Angular 5 a Angular 8, mejorando rendimiento y mantenibilidad.',
+          'Contribuí al desarrollo y mantenimiento de una aplicación cliente a gran escala utilizando Angular y Node.js.',
+          'Participé en la migración de Angular 5 a Angular 8, ayudando a modernizar el código base y reducir la deuda técnica.',
           'Introduje y reforcé una cultura de testing mediante la implementación de pruebas unitarias con Mocha y Jasmine.',
-          'Desarrollé funcionalidades full-stack combinando frontend moderno con servicios backend en Node.js.',
-          'Consolidé una base sólida en metodologías Agile, buenas prácticas de desarrollo y trabajo en equipos multidisciplinares.'
+          'Trabajé en un equipo Agile/Scrum utilizando flujos de trabajo basados en GitHub.'
         ]
       },
 
       sigma: {
         company: 'Sigma',
         role: 'Java Developer',
-        dates: 'Oct 2018 - Sep 2019 | Sabadell',
+        dates: 'Oct 2018 - Mayo 2019 | Sabadell',
         bullets: [
-          'Desarrollé software empresarial utilizando Java 6 y frameworks propietarios en entornos corporativos.',
-          'Adquirí experiencia práctica en ciclos de vida de desarrollo de software, mantenimiento de sistemas legacy y patrones de arquitectura empresarial.'
+          'Empecé con unas prácticas de cuatro meses y fui promocionado a Junior Java Developer dentro de ese mismo periodo.',
+          'Desarrollé funcionalidades con Java 6 y el framework interno de la empresa, adquiriendo experiencia práctica en desarrollo de software empresarial.'
         ]
       }
     }
@@ -196,7 +197,6 @@ export default {
     subtitle: 'Ponte en contacto',
     description: 'Actualmente estoy abierto a nuevas oportunidades y colaboraciones. Ya sea que tengas una pregunta o simplemente quieras saludar, ¡haré mi mejor esfuerzo para responderte!',
     cta: '¡Hablemos!',
-    downloadCta: 'Descargar CV',
     info: {
       email: 'Correo electrónico',
       phone: 'Teléfono',

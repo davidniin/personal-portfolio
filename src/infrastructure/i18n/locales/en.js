@@ -59,20 +59,21 @@ export default {
         location: 'in Barcelona, Spain',
         education: 'Currently pursuing a Bachelor\'s Degree in Computer Engineering',
         skills: {
-            title: 'Technical Skills',
-            coreTech: {
-                title: 'Core Technologies'
-            },
-            architecture: {
-                title: 'Architecture & Patterns',
-                items: [
-                    'Microfrontends',
-                    'Microservices Integration',
-                    'State Management (Pinia, Vuex)',
-                    'Design Patterns',
-                    'SOLID Principles',
-                    'Code Refactoring'
-                ]
+            title: 'Skills & stack',
+            subtitle: 'Grouped by how much real experience backs each one — not a wall of logos.',
+            tiers: {
+                core: {
+                    label: 'Core stack',
+                    caption: 'Six years of daily-driver experience'
+                },
+                comfortable: {
+                    label: 'Also shipped with',
+                    caption: 'Real production experience, just not my main focus'
+                },
+                exploring: {
+                    label: 'Exploring next',
+                    caption: 'Where I want to go deeper'
+                }
             }
         }
     },
@@ -86,11 +87,11 @@ export default {
                 role: 'Senior Frontend Developer',
                 dates: 'May 2023 - Present | Barcelona',
                 bullets: [
-                    'Design and implement scalable, resilient frontend architectures using Vue.js for mission-critical travel industry applications handling high traffic volumes.',
-                    'Maintain high engineering standards through automated testing (Jest, Cypress), rigorous code reviews, and active technical debt management.',
-                    'Contribute to the continuous improvement of Agile practices, optimizing sprint planning, delivery pipelines, and release stability.',
-                    'Collaborate closely with design, product, and backend teams to deliver maintainable, business-aligned frontend solutions.',
-                    'Mentor junior developers and new team members, accelerating technical onboarding and fostering strong engineering best practices.'
+                    'Engineered Vue-based microfrontend architectures for enterprise travel applications deployed across multiple clients.',
+                    'Owned frontend architecture decisions, technology selection, state management strategy and coding standards.',
+                    'Strengthened CI/CD pipelines and introduced quality gates, reducing production bugs and QA-detected issues by ~30%.',
+                    'Improved application performance via lazy loading and data-fetching optimizations, cutting initial load times and API waterfall dependencies.',
+                    'Mentored junior developers and interns through day-to-day guidance, onboarding and code reviews — more than half were subsequently hired.'
                 ]
             },
 
@@ -99,11 +100,11 @@ export default {
                 role: 'Frontend Web Developer',
                 dates: 'Nov 2020 - May 2023 | Barcelona',
                 bullets: [
-                    'Developed a customer-facing web application from the ground up using Vue.js, following Agile methodologies and collaborative GitLab workflows.',
-                    'Led the technical migration from Vue 2 to Vue 3, improving code maintainability and aligning the project with modern frontend standards.',
+                    'Built a logistics web platform from scratch with Vue.js, owning the complete frontend lifecycle from architecture to production delivery within a small team of four developers.',
+                    'Delivered real-time monitoring features for production output, warehouse inventory and shipping route status.',
                     'Integrated the frontend with a microservices-based architecture via REST APIs and managed complex application state using Vuex.',
                     'Built modular, responsive, and scalable user interfaces using SCSS and Tailwind CSS.',
-                    'Supported the growth of junior developers through task definition, technical guidance, and quality-focused code reviews.'
+                    'Mentored interns through onboarding, technical guidance, task assignment and code reviews.'
                 ]
             },
 
@@ -112,20 +113,20 @@ export default {
                 role: 'Full Stack Developer',
                 dates: 'Jun 2019 - Jul 2020 | Barcelona',
                 bullets: [
-                    'Contributed to the modernization of legacy applications by migrating projects from Angular 5 to Angular 8, improving performance and maintainability.',
+                    'Contributed to the development and maintenance of a large-scale client application using Angular and Node.js.',
+                    'Participated in the Angular 5 to Angular 8 migration, helping modernize the codebase and reduce technical debt.',
                     'Established and reinforced a testing culture by implementing comprehensive unit tests using Mocha and Jasmine.',
-                    'Delivered full-stack features combining modern frontend development with backend services built in Node.js.',
-                    'Strengthened expertise in Agile methodologies, software development best practices, and cross-functional teamwork.'
+                    'Worked within an Agile/Scrum team using GitHub-based development workflows.'
                 ]
             },
 
             sigma: {
                 company: 'Sigma',
                 role: 'Java Developer',
-                dates: 'Oct 2018 - Sep 2019 | Sabadell',
+                dates: 'Oct 2018 - May 2019 | Sabadell',
                 bullets: [
-                    'Developed enterprise software using Java 6 and internal proprietary frameworks in corporate environments.',
-                    'Gained foundational experience in software development life cycles, legacy system maintenance, and enterprise architecture patterns.'
+                    'Started as a four-month internship and was promoted to Junior Java Developer within that same period.',
+                    'Developed application features using Java 6 and the company\'s internal framework, gaining foundational experience in enterprise software development.'
                 ]
             }
         }
@@ -195,7 +196,6 @@ export default {
         subtitle: 'Get in touch',
         description: 'I\'m currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, I\'ll do my best to get back to you!',
         cta: 'Let\'s talk!',
-        downloadCta: 'Download CV',
         info: {
             email: 'Email',
             phone: 'Phone',

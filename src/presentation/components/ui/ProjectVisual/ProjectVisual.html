@@ -1,0 +1,13 @@
+<div class="relative w-full h-40 rounded-lg overflow-hidden border border-lightestNavy/50 bg-gradient-to-br from-lightNavy to-navy">
+    <!-- Ambient glow, echoing the site's node-graph background -->
+    <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-green/10 blur-2xl"></div>
+    <div class="absolute -left-6 -bottom-6 w-24 h-24 rounded-full bg-green/5 blur-xl"></div>
+
+    <!-- Decorative node dots -->
+    <span v-for="(dot, index) in dots" :key="index" class="absolute w-1 h-1 rounded-full bg-green/50"
+        :style="{ left: dot.x + '%', top: dot.y + '%' }"></span>
+
+    <div class="absolute inset-0 flex items-center justify-center">
+        <component :is="icon" class="w-14 h-14 text-green/25" stroke-width="1.25" aria-hidden="true" />
+    </div>
+</div>

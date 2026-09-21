@@ -23,8 +23,6 @@
                 {{ $t(`nav.${link.labelKey}`) }}
             </a>
 
-            <LanguageSwitcher />
-
             <div class="flex items-center gap-6 pt-4 border-t border-lightestNavy w-full justify-center">
                 <a :href="socialLinks.github" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
                     class="text-lightSlate hover:text-green transition-colors">
@@ -38,6 +36,7 @@
                     class="text-lightSlate hover:text-green transition-colors">
                     <Mail class="w-5 h-5" />
                 </a>
+                <LanguageSwitcher />
             </div>
         </div>
     </div>
